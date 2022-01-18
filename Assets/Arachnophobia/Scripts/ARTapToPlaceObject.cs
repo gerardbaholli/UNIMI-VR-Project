@@ -13,23 +13,28 @@ public class ARTapToPlaceObject : MonoBehaviour
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
     private bool placementPoseIsValid = false;
+    private bool isObjectPlaced = false;
 
-    void Start()
+    private void Start()
     {
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
     }
 
-    void Update()
+    private void Update()
     {
-        UpdatePlacementPose();
-        UpdatePlacementIndicator();
-        CheckUserTouchToPlaceObject();
+        if (!isObjectPlaced)
+        {
+            UpdatePlacementPose();
+            UpdatePlacementIndicator();
+            CheckUserTouchToPlaceObject();
+        }
     }
 
     private void CheckUserTouchToPlaceObject()
     {
         if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
+            isObjectPlaced = true;
             Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
         }
     }
@@ -62,6 +67,11 @@ public class ARTapToPlaceObject : MonoBehaviour
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(cameraBearing);
         }   
+    }
+
+    public void ResetMap()
+    {
+        isObjectPlaced = false;
     }
 
 }
