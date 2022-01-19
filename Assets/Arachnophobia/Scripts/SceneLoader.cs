@@ -5,21 +5,21 @@ using System.Collections;
 public class SceneLoader : MonoBehaviour
 {
 
-    //GameStatus gameStatus;
-    //LifeStatus lifeStatus;
     int numberOfScenes;
 
     private void Start()
     {
         numberOfScenes = SceneManager.sceneCountInBuildSettings;
-        //gameStatus = FindObjectOfType<GameStatus>();
-        //lifeStatus = FindObjectOfType<LifeStatus>();
+    }
+
+    private IEnumerator WaitForSceneLoad(int sceneIndex, float delayOnSceneLoad)
+    {
+        yield return new WaitForSeconds(delayOnSceneLoad);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void LoadStartingScene(float delayOnSceneLoad)
     {
-        //gameStatus.ResetScore();
-        //lifeStatus.ResetLifeForNewLevel();
         StartCoroutine(WaitForSceneLoad(0, delayOnSceneLoad));
     }
 
@@ -34,7 +34,6 @@ public class SceneLoader : MonoBehaviour
         }
         else
         {
-            //gameStatus.ResetScore();
             LoadStartingScene(delayOnSceneLoad + 1f);
         }
     }
@@ -43,12 +42,5 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex, delayOnSceneLoad));
     }
-
-    private IEnumerator WaitForSceneLoad(int sceneIndex, float delayOnSceneLoad)
-    {
-        yield return new WaitForSeconds(delayOnSceneLoad);
-        SceneManager.LoadScene(sceneIndex);
-    }
-
 
 }

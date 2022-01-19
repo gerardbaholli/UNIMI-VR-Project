@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Arachnophobia/Scenes/StartingScene.unity
+    guid: 1a7046005ef804be5a79821b0658e704
+  - enabled: 1
     path: Assets/Arachnophobia/Scenes/MainScene.unity
     guid: 6bdce89659816455b9f906fc62d19910
   m_configObjects:

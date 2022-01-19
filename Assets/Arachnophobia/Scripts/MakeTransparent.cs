@@ -23,14 +23,10 @@ public class MakeTransparent : MonoBehaviour
         if (transparency)
         {
             ActivateTransparency();
-            Debug.Log("ActivateTransparency");
-            Debug.Log(currentColor);
         }
         else
         {
             DeactivateTransparency();
-            Debug.Log("DeactivateTransparency");
-            Debug.Log(currentColor);
         }
     }
 
