@@ -9,6 +9,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 {
     [SerializeField] GameObject objectToPlace;
     [SerializeField] GameObject placementIndicator;
+    [SerializeField] Canvas userInterface;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -17,6 +18,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void Start()
     {
+        HideUI(userInterface);
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
     }
 
@@ -36,6 +38,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             isObjectPlaced = true;
             Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
+            ShowUI(userInterface);
         }
     }
 
@@ -69,9 +72,14 @@ public class ARTapToPlaceObject : MonoBehaviour
         }   
     }
 
-    public void ResetMap()
+    private void ShowUI(Canvas canvas)
     {
-        isObjectPlaced = false;
+        canvas.enabled = true;
+    }
+
+    private void HideUI(Canvas canvas)
+    {
+        canvas.enabled = false;
     }
 
 }
