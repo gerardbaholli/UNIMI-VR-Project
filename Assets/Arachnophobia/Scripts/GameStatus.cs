@@ -7,6 +7,8 @@ public class GameStatus : MonoBehaviour
 {
 
     [SerializeField] UIManager uiManager;
+    [SerializeField] SpawnPoint[] spawnPoint;
+    [SerializeField] Enemy enemy;
 
     private bool isGameStarted = false;
     private int score;
@@ -39,9 +41,13 @@ public class GameStatus : MonoBehaviour
 
     public void StartGame()
     {
-        uiManager.HideStartUI();
+        uiManager.HideStartUI(); //da decommentare
         //uiManager.ShowGameUI();
         isGameStarted = true;
+        Instantiate(enemy, spawnPoint[0].transform.position, Quaternion.identity);
+        Instantiate(enemy, spawnPoint[1].transform.position, Quaternion.identity);
+        Instantiate(enemy, spawnPoint[2].transform.position, Quaternion.identity);
+        Instantiate(enemy, spawnPoint[3].transform.position, Quaternion.identity);
     }
 
 
