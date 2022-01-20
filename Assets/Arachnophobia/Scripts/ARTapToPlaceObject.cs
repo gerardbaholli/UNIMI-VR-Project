@@ -9,7 +9,8 @@ public class ARTapToPlaceObject : MonoBehaviour
 {
     [SerializeField] GameObject objectToPlace;
     [SerializeField] GameObject placementIndicator;
-    [SerializeField] Canvas userInterface;
+
+    private UIManager uiManager;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -18,7 +19,8 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void Start()
     {
-        HideUI(userInterface);
+        uiManager = FindObjectOfType<UIManager>();
+        uiManager.HideStartUI();
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
     }
 
@@ -38,7 +40,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             isObjectPlaced = true;
             Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
-            ShowUI(userInterface);
+            uiManager.ShowStartUI();
         }
     }
 
@@ -70,16 +72,6 @@ public class ARTapToPlaceObject : MonoBehaviour
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(cameraBearing);
         }   
-    }
-
-    private void ShowUI(Canvas canvas)
-    {
-        canvas.enabled = true;
-    }
-
-    private void HideUI(Canvas canvas)
-    {
-        canvas.enabled = false;
     }
 
 }
