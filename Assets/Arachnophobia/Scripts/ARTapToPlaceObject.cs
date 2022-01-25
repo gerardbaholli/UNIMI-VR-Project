@@ -20,7 +20,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     private void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
-        uiManager.HideStartUI();
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
     }
 

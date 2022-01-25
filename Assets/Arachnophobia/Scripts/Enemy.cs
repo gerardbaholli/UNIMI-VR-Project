@@ -6,11 +6,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] float speed;
-    //[SerializeField] float damage;
+    [Range(0f, 20f)] [SerializeField] float speed;
+    [SerializeField] float damage;
+    [SerializeField] int pointsForKilling;
     //[SerializeField] float life;
 
-    private Nexus target; 
+    private Nexus target;
+    
 
     private void Start()
     {
@@ -19,21 +21,35 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveTowardNexus();
+        if (target != null)
+        {
+            MoveTowardNexus();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void MoveTowardNexus()
     {
-        // Move our position a step closer to the target.
-        float step = speed * Time.deltaTime; // calculate distance to move
+        float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+    }
 
-        // MAYBE TO BE REMOVED
-        // Check if the position of the cube and sphere are approximately equal.
-        if (Vector3.Distance(transform.position, target.transform.position) < 1f)
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Enemy OnTriggerEnter with " + other.gameObject.name);
+
+        if (other.gameObject.tag == target.tag)
         {
-            // Swap the position of the cylinder.
-            target.transform.position *= -1.0f;
+            target.ApplyDamage(damage);
+            Destroy(gameObject);
         }
+    }
+
+    public int GetPointsForKilling()
+    {
+        return pointsForKilling;
     }
 }

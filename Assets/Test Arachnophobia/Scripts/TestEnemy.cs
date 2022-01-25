@@ -26,7 +26,6 @@ public class TestEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void MoveTowardNexus()

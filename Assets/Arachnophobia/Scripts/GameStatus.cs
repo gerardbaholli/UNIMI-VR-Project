@@ -7,12 +7,12 @@ public class GameStatus : MonoBehaviour
 {
 
     [SerializeField] UIManager uiManager;
+    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] SpawnPoint[] spawnPoint;
     [SerializeField] Enemy enemy;
 
     private bool isGameStarted = false;
     private int score;
-    private int time;
 
     private void Awake()
     {
@@ -34,6 +34,11 @@ public class GameStatus : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();   
     }
 
+    private void FixedUpdate()
+    {
+        UpdateScore();
+    }
+
     public bool IsGameStarted()
     {
         return isGameStarted;
@@ -41,8 +46,8 @@ public class GameStatus : MonoBehaviour
 
     public void StartGame()
     {
-        uiManager.HideStartUI(); //da decommentare
-        //uiManager.ShowGameUI();
+        uiManager.HideStartUI();
+        uiManager.ShowGameUI();
         isGameStarted = true;
         Instantiate(enemy, spawnPoint[0].transform.position, Quaternion.identity);
         Instantiate(enemy, spawnPoint[1].transform.position, Quaternion.identity);
@@ -50,5 +55,14 @@ public class GameStatus : MonoBehaviour
         Instantiate(enemy, spawnPoint[3].transform.position, Quaternion.identity);
     }
 
+    private void UpdateScore()
+    {
+        scoreText.text = score.ToString();
+    }
+
+    public void AddPointsToScore(int value)
+    {
+        score += value;
+    }
 
 }

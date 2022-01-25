@@ -6,12 +6,12 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] Canvas startUI;
-    //[SerializeField] Canvas gameUI;
+    [SerializeField] Canvas gameUI;
 
     private void Start()
     {
-        startUI.enabled = false;
-        //gameUI.enabled = false;
+        HideStartUI();
+        HideGameUI();
     }
 
     public void ShowStartUI()
@@ -26,12 +26,12 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameUI()
     {
-        //gameUI.enabled = true;
+        gameUI.enabled = true;
     }
 
     public void HideGameUI()
     {
-        //gameUI.enabled = false;
+        gameUI.enabled = false;
     }
 
 }

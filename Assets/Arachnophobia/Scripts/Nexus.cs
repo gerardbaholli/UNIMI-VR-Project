@@ -5,23 +5,29 @@ using UnityEngine;
 public class Nexus : MonoBehaviour
 {
 
-    [SerializeField] int originalLife;
+    [SerializeField] float originalLife;
 
-    private int currentLife;
+    private float currentLife;
 
     private void Start()
     {
         currentLife = originalLife;
     }
 
-    public int GetCurrentLife()
+    void FixedUpdate()
     {
-        return currentLife;
+        CheckLife();
     }
 
-    public void ApplyDamage(int damageValue)
+    private void CheckLife()
     {
-        currentLife -= damageValue;
+        if (currentLife <= 0)
+            Destroy(gameObject);
+    }
+
+    public void ApplyDamage(float damage)
+    {
+        currentLife -= damage;
     }
 
 }
