@@ -6,23 +6,24 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ShootingSystem : MonoBehaviour
 {
-    //[SerializeField] GameObject bullet;
-
     [SerializeField] GameObject arCamera;
+    [SerializeField] AudioClip pistolSound;
 
     private GameStatus gameStatus;
-    private ARRaycastManager arRaycastManager;
+    private AudioSource audioSource;
     
 
     void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
-        arRaycastManager = FindObjectOfType<ARRaycastManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
     public void Shoot()
     {
+        audioSource.PlayOneShot(pistolSound);
+
         RaycastHit hit;
 
         if (Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit))
@@ -34,29 +35,5 @@ public class ShootingSystem : MonoBehaviour
             }
         }
     }
-
-
-
-    /*
-    void Update()
-    {
-        if (gameStatus.IsGameStarted())
-        {
-            Shoot();
-        }
-    }
-
-    private void Shoot()
-    {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            var shootingSight = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
-            var hits = new List<ARRaycastHit>();
-            arRaycastManager.Raycast(shootingSight, hits, TrackableType.Planes);
-
-            Instantiate(bullet, hits[0].pose.position, Quaternion.identity);
-        }
-    }
-    */
 
 }

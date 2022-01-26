@@ -19,6 +19,11 @@ public class Nexus : MonoBehaviour
         CheckLife();
     }
 
+    public int GetCurrentLife()
+    {
+        return (int) currentLife;
+    }
+
     private void CheckLife()
     {
         if (currentLife <= 0)

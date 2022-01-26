@@ -5,10 +5,12 @@ using System.Collections;
 public class SceneLoader : MonoBehaviour
 {
 
-    int numberOfScenes;
+    private GameStatus gameStatus;
+    private int numberOfScenes;
 
     private void Start()
     {
+        gameStatus = FindObjectOfType<GameStatus>();
         numberOfScenes = SceneManager.sceneCountInBuildSettings;
     }
 
@@ -20,13 +22,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadStartingScene(float delayOnSceneLoad)
     {
+        Destroy(gameStatus);
         StartCoroutine(WaitForSceneLoad(0, delayOnSceneLoad));
     }
 
     public void LoadNextScene(float delayOnSceneLoad)
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
 
         if (currentSceneIndex + 1 < numberOfScenes)
         {

@@ -8,10 +8,12 @@ public class GameStatus : MonoBehaviour
 
     [SerializeField] UIManager uiManager;
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] SpawnPoint[] spawnPoint;
+    [SerializeField] SpawnPoint[] spawnPoints;
     [SerializeField] Enemy enemy;
+    [SerializeField] float spawnCooldown;
 
-    private bool isGameStarted = false;
+    private Nexus nexus;
+    private bool isGameStarted;
     private int score;
 
     private void Awake()
@@ -31,12 +33,11 @@ public class GameStatus : MonoBehaviour
 
     private void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();   
-    }
+        uiManager = FindObjectOfType<UIManager>();
+        nexus = FindObjectOfType<Nexus>();
 
-    private void FixedUpdate()
-    {
-        UpdateScore();
+        isGameStarted = false;
+        score = 0;
     }
 
     public bool IsGameStarted()
@@ -49,15 +50,32 @@ public class GameStatus : MonoBehaviour
         uiManager.HideStartUI();
         uiManager.ShowGameUI();
         isGameStarted = true;
-        Instantiate(enemy, spawnPoint[0].transform.position, Quaternion.identity);
-        Instantiate(enemy, spawnPoint[1].transform.position, Quaternion.identity);
-        Instantiate(enemy, spawnPoint[2].transform.position, Quaternion.identity);
-        Instantiate(enemy, spawnPoint[3].transform.position, Quaternion.identity);
+        nexus = FindObjectOfType<Nexus>();
+        StartCoroutine(SpawnEnemies());
     }
 
-    private void UpdateScore()
+    private IEnumerator SpawnEnemies()
     {
-        scoreText.text = score.ToString();
+        Instantiate(enemy, spawnPoints[0].transform.position,
+            Quaternion.LookRotation(nexus.transform.position - spawnPoints[0].transform.position));
+
+        Instantiate(enemy, spawnPoints[1].transform.position,
+            Quaternion.LookRotation(nexus.transform.position - spawnPoints[1].transform.position));
+
+        Instantiate(enemy, spawnPoints[2].transform.position,
+            Quaternion.LookRotation(nexus.transform.position - spawnPoints[2].transform.position));
+
+        Instantiate(enemy, spawnPoints[3].transform.position,
+            Quaternion.LookRotation(nexus.transform.position - spawnPoints[3].transform.position));
+
+        yield return new WaitForSeconds(spawnCooldown);
+
+        StartCoroutine(SpawnEnemies());
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 
     public void AddPointsToScore(int value)

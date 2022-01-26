@@ -17,7 +17,7 @@ public class TestSpawnPoint : MonoBehaviour
         Debug.Log(nexus);
 
         if (nexus != null)
-            StartCoroutine(Generate());
+            StartCoroutine(SpawnEnemies());
         else
             Destroy(gameObject);
     }
@@ -32,15 +32,14 @@ public class TestSpawnPoint : MonoBehaviour
         return (nexus != null) ? true : false;
     }
 
-    IEnumerator Generate()
+    private IEnumerator SpawnEnemies()
     {
-        while (enemyToSpawn > 0 && IsTargetAlive())
-        {
-            Instantiate(enemy, transform.position, Quaternion.LookRotation(nexus.transform.position - transform.position));
-            yield return new WaitForSeconds(spawnCooldown);
-            enemyToSpawn--;
-        }
-        
+        Instantiate(enemy, gameObject.transform.position,
+            Quaternion.LookRotation(nexus.transform.position - gameObject.transform.position));
+
+        yield return new WaitForSeconds(spawnCooldown);
+
+        StartCoroutine(SpawnEnemies());
     }
 
 }
