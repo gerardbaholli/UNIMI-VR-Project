@@ -8,13 +8,15 @@ public class TestEnemy : MonoBehaviour
 
     [SerializeField] float speed;
     [SerializeField] float damage;
-    [SerializeField] int currentHealth = 1;
+    [SerializeField] float originalHealth;
+    [SerializeField] float currentHealth;
 
     private TestNexus target;
 
     private void Start()
     {
         target = FindObjectOfType<TestNexus>();
+        currentHealth = originalHealth;
     }
 
     private void FixedUpdate()
@@ -37,8 +39,6 @@ public class TestEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enemy OnTriggerEnter with " + other.gameObject.name);
-
         if (other.gameObject.tag == target.tag)
         {
             target.InflictDamage(damage);
@@ -47,16 +47,13 @@ public class TestEnemy : MonoBehaviour
     }
 
 
-    public void Damage(int damageAmount)
+    public void Damage(float damageAmount)
     {
-        //subtract damage amount when Damage function is called
         currentHealth -= damageAmount;
 
-        //Check if health has fallen below zero
         if (currentHealth <= 0)
         {
-            //if health has fallen below zero, deactivate it 
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
