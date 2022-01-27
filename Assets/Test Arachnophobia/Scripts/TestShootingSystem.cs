@@ -9,22 +9,34 @@ public class TestShootingSystem : MonoBehaviour
 
     [SerializeField] TestWeapon[] weaponList;
     [SerializeField] TextMeshProUGUI cooldown;
+    [SerializeField] float weaponRotationSpeed;
+    [SerializeField] Transform weaponPos;
     [SerializeField] GameObject bullet;
 
+    private TestWeapon standardWeapon;
     private TestWeapon currentWeapon;
+    private GameObject currentWeaponMesh;
     private Vector3 collision = Vector3.zero;
     private float nextFire;
 
+
     private void Start()
     {
-        currentWeapon = weaponList[0];
-        Instantiate(currentWeapon.GetWeaponMesh(), new Vector3(0, 3, 0), new Quaternion(0, 0.7071f, 0, 0.7071f));        
+        standardWeapon = weaponList[1];
+        currentWeapon = standardWeapon;
+        currentWeaponMesh = Instantiate(currentWeapon.GetWeaponMesh(), weaponPos.position, new Quaternion(0, 0.7071f, 0, 0.7071f));        
     }
 
     private void FixedUpdate()
     {
         ShootRaycast();
         UpdateShootCooldown();
+        RotateWeaponMesh();
+    }
+
+    private void RotateWeaponMesh()
+    {
+        currentWeaponMesh.transform.Rotate(Vector3.up * (weaponRotationSpeed * Time.deltaTime));
     }
 
     private void UpdateShootCooldown()
@@ -50,7 +62,7 @@ public class TestShootingSystem : MonoBehaviour
             Debug.Log("NOT READY TO HIT");
         }
 
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+        if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + currentWeapon.GetFireRate();
 
@@ -80,7 +92,7 @@ public class TestShootingSystem : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(collision, 0.2f);
+        Gizmos.DrawWireSphere(collision, 1f);
     }
 
 }
