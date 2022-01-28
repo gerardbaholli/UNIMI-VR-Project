@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8015025438328368459}
   m_Layer: 0
-  m_Name: Weapon Uzi
+  m_Name: Mesh Uzi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

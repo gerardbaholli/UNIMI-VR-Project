@@ -17,7 +17,7 @@ public class TestShootingSystem : MonoBehaviour
     [SerializeField] GameObject bullet;
 
 
-    public enum SelectedWeapon { Pistol = 0, Uzi = 1 }
+    public enum SelectedWeapon { Pistol = 0, Uzi = 1 , RocketLauncher = 2}
     public SelectedWeapon selectedWeapon;
 
     // CACHE
@@ -33,9 +33,8 @@ public class TestShootingSystem : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        standardWeapon = weaponList[(int) selectedWeapon];
+        standardWeapon = weaponList[0];
         currentWeapon = standardWeapon;
-        currentWeaponMesh = Instantiate(currentWeapon.GetWeaponMesh(), weaponPos.position, new Quaternion(0, 0.7071f, 0, 0.7071f));        
     }
 
     private void FixedUpdate()
@@ -88,30 +87,9 @@ public class TestShootingSystem : MonoBehaviour
         }
     }
 
-    private void DebugFireHit()
-    {
-        if (Time.time > nextFire)
-        {
-            Debug.Log("READY TO HIT");
-        }
-        else
-        {
-            Debug.Log("NOT READY TO HIT");
-        }
-    }
-
     public TestWeapon GetCurrentWeapon()
     {
         return currentWeapon;
     }
 
-    public GameObject GetCurrentWeaponMesh()
-    {
-        return currentWeaponMesh;
-    }
-
-    public TestWeapon[] GetWeaponList()
-    {
-        return weaponList;
-    }
 }
