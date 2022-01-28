@@ -14,7 +14,6 @@ public class TestSpawnPoint : MonoBehaviour
     private void Start()
     {
         nexus = FindObjectOfType<TestNexus>();
-        Debug.Log(nexus);
 
         if (nexus != null)
             StartCoroutine(SpawnEnemies());

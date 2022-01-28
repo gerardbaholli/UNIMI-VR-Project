@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestWeapon : MonoBehaviour
 {
+    [SerializeField] int weaponID;
     [SerializeField] string weaponName;
     [SerializeField] float weaponDamage;
     [SerializeField] float fireRate;
@@ -11,6 +12,11 @@ public class TestWeapon : MonoBehaviour
     [SerializeField] GameObject weaponMesh;
     [SerializeField] GameObject bulletMesh;
     [SerializeField] AudioClip shootSound;
+
+    public int GetWeaponID()
+    {
+        return weaponID;
+    }
 
     public float GetFireRate()
     {
@@ -30,6 +36,11 @@ public class TestWeapon : MonoBehaviour
     public GameObject GetWeaponMesh()
     {
         return weaponMesh;
+    }
+
+    public AudioClip GetShootSound()
+    {
+        return shootSound;
     }
 
 }

@@ -6,32 +6,45 @@ using System;
 
 public class TestShootingSystem : MonoBehaviour
 {
-
+    // DESIGN
+    [Header("Basic")]
     [SerializeField] TestWeapon[] weaponList;
     [SerializeField] TextMeshProUGUI cooldown;
     [SerializeField] float weaponRotationSpeed;
+
+    [Header("Test")]
     [SerializeField] Transform weaponPos;
     [SerializeField] GameObject bullet;
 
+
+    public enum SelectedWeapon { Pistol = 0, Uzi = 1 }
+    public SelectedWeapon selectedWeapon;
+
+    // CACHE
     private TestWeapon standardWeapon;
+    private float nextFire;
+
+    // CURRENT WEAPON INFO
     private TestWeapon currentWeapon;
     private GameObject currentWeaponMesh;
-    private Vector3 collision = Vector3.zero;
-    private float nextFire;
+    private AudioSource audioSource;
 
 
     private void Start()
     {
-        standardWeapon = weaponList[1];
+        audioSource = GetComponent<AudioSource>();
+        standardWeapon = weaponList[(int) selectedWeapon];
         currentWeapon = standardWeapon;
         currentWeaponMesh = Instantiate(currentWeapon.GetWeaponMesh(), weaponPos.position, new Quaternion(0, 0.7071f, 0, 0.7071f));        
     }
 
     private void FixedUpdate()
     {
+        currentWeapon = weaponList[(int) selectedWeapon];
+        currentWeaponMesh = currentWeapon.GetWeaponMesh();
         ShootRaycast();
         UpdateShootCooldown();
-        RotateWeaponMesh();
+        //RotateWeaponMesh();
     }
 
     private void RotateWeaponMesh()
@@ -53,15 +66,6 @@ public class TestShootingSystem : MonoBehaviour
 
     private void ShootRaycast()
     {
-        if (Time.time > nextFire)
-        {
-            Debug.Log("READY TO HIT");
-        }
-        else
-        {
-            Debug.Log("NOT READY TO HIT");
-        }
-
         if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + currentWeapon.GetFireRate();
@@ -71,28 +75,43 @@ public class TestShootingSystem : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, currentWeapon.GetWeaponRange()))
             {
-                Instantiate(bullet, hit.point, Quaternion.identity);
+                audioSource.PlayOneShot(currentWeapon.GetShootSound());
+                Instantiate(bullet, hit.point, Quaternion.identity); // TODO delete
                 TestEnemy enemy = hit.collider.GetComponent<TestEnemy>();
 
                 if (enemy != null)
                 {
-                    Debug.Log("Hit: " + enemy.name);
-                    collision = hit.point;
                     enemy.Damage(currentWeapon.GetDamage());
                 }
-                else
-                {
-                    Debug.Log("NOT HIT");
-                }
+
             }
         }
     }
 
-
-    private void OnDrawGizmos()
+    private void DebugFireHit()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(collision, 1f);
+        if (Time.time > nextFire)
+        {
+            Debug.Log("READY TO HIT");
+        }
+        else
+        {
+            Debug.Log("NOT READY TO HIT");
+        }
     }
 
+    public TestWeapon GetCurrentWeapon()
+    {
+        return currentWeapon;
+    }
+
+    public GameObject GetCurrentWeaponMesh()
+    {
+        return currentWeaponMesh;
+    }
+
+    public TestWeapon[] GetWeaponList()
+    {
+        return weaponList;
+    }
 }
