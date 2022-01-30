@@ -569,7 +569,7 @@ MonoBehaviour:
   weaponRotationSpeed: 100
   weaponPos: {fileID: 1971434120}
   bullet: {fileID: 2258423924595996227, guid: a434302201cb6466089bad4f79c07ea5, type: 3}
-  selectedWeapon: 0
+  selectedWeapon: 1
 --- !u!82 &542973814
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1428,6 +1428,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -1619,6 +1634,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038210006270838975, guid: fc3c3d3d7ce654c968b426ded5118c56,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038210006270838975, guid: fc3c3d3d7ce654c968b426ded5118c56,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038210006270838975, guid: fc3c3d3d7ce654c968b426ded5118c56,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5038210006270838975, guid: fc3c3d3d7ce654c968b426ded5118c56,
         type: 3}
@@ -2001,6 +2031,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313831188739401945, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313831188739401945, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313831188739401945, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1313831188739401945, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
         type: 3}
