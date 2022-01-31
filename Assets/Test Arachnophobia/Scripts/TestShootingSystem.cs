@@ -22,10 +22,10 @@ public class TestShootingSystem : MonoBehaviour
     // CACHE
     private TestWeapon standardWeapon;
     private float nextFire;
+    private Collider[] hitColliders;
 
     // CURRENT WEAPON INFO
     private TestWeapon currentWeapon;
-    private GameObject currentWeaponMesh;
     private AudioSource audioSource;
     public int ammoCounter;
 
@@ -41,11 +41,8 @@ public class TestShootingSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //currentWeapon = weaponList[(int) selectedWeapon];
-        //currentWeaponMesh = currentWeapon.GetWeaponMesh();
         ShootRaycast();
         UpdateShootCooldown();
-        //RotateWeaponMesh();
     }
 
 
@@ -75,17 +72,45 @@ public class TestShootingSystem : MonoBehaviour
             {
                 audioSource.PlayOneShot(currentWeapon.GetShootSound());
                 Instantiate(currentWeapon.GetImpactEffect(), hit.point, Quaternion.LookRotation(hit.normal));
-
-                TestEnemy enemy = hit.collider.GetComponent<TestEnemy>();
-
-                if (enemy != null)
-                {
-                    enemy.Damage(currentWeapon.GetDamage());
-                }
+                CheckDropHit(hit);
+                CheckEnemyHit(hit);
             }
 
             UpdateAmmoCapability();
+        }
+    }
 
+    private void CheckDropHit(RaycastHit hit)
+    {
+        TestWeapon drop = hit.collider.GetComponent<TestWeapon>();
+        if (drop != null)
+        {
+            currentWeapon = weaponList[drop.GetWeaponID()];
+            ammoCounter = currentWeapon.GetAmmoCapacity();
+            UpdateAmmoText();
+            Destroy(drop.gameObject);
+        }
+    }
+
+    private void CheckEnemyHit(RaycastHit hit)
+    {
+        TestEnemy enemy = hit.collider.GetComponent<TestEnemy>();
+        if (enemy != null)
+        {
+            enemy.Damage(currentWeapon.GetDamage());
+        }
+
+        if (currentWeapon.GetAOEDamage() > 0)
+        {
+            hitColliders = Physics.OverlapSphere(hit.point, currentWeapon.GetAOERadius());
+            foreach (Collider hitCol in hitColliders)
+            {
+                enemy = hitCol.GetComponent<TestEnemy>();
+                if (enemy != null)
+                {
+                    enemy.Damage(currentWeapon.GetAOEDamage());
+                }
+            }
         }
     }
 

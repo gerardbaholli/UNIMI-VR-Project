@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690349143435341288}
   - component: {fileID: 690349143435341291}
+  - component: {fileID: 5870402117279385396}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -51,12 +52,27 @@ MonoBehaviour:
   fireRate: 0.5
   weaponRange: 1000
   ammoCapacity: -1
+  AOEDamage: 0
+  AOERadius: 0
   weaponMesh: {fileID: 5038210006270350495, guid: fc3c3d3d7ce654c968b426ded5118c56,
     type: 3}
   bulletMesh: {fileID: 592467261850737312, guid: 224eff15d59b54ba29ee541f849fef4c,
     type: 3}
   shootSound: {fileID: 8300000, guid: 0e351240431824ebd930ef6647eba827, type: 3}
   impactEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
+--- !u!135 &5870402117279385396
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690349143435341289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &734914899
 PrefabInstance:
   m_ObjectHideFlags: 0

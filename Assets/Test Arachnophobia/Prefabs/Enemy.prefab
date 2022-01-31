@@ -86,6 +86,7 @@ MonoBehaviour:
       type: 3}
     dropRate: 0.05
   noDropRate: 0
+  secondsAfterDestroyDrop: 5
 --- !u!114 &4631737928966635690
 MonoBehaviour:
   m_ObjectHideFlags: 0

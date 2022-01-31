@@ -13,6 +13,9 @@ public class TestWeapon : MonoBehaviour
     [SerializeField] float fireRate;
     [SerializeField] float weaponRange;
     [SerializeField] int ammoCapacity;
+    [SerializeField] float AOEDamage;
+    [SerializeField] float AOERadius;
+
 
     [Header("Graphics")]
     [SerializeField] GameObject weaponMesh;
@@ -77,6 +80,16 @@ public class TestWeapon : MonoBehaviour
     public int GetAmmoCapacity()
     {
         return ammoCapacity;
+    }
+
+    public float GetAOEDamage()
+    {
+        return AOEDamage;
+    }
+
+    public float GetAOERadius()
+    {
+        return AOERadius;
     }
 
 }

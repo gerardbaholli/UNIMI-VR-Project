@@ -6,7 +6,9 @@ public class TestDrop : MonoBehaviour
 {
 
     [SerializeField] DropRate[] loots;
-    [SerializeField] float noDropRate;
+    [SerializeField] float secondsAfterDestroyDrop;
+
+    private float noDropRate;
 
     private void Start()
     {
@@ -34,7 +36,6 @@ public class TestDrop : MonoBehaviour
         float sum = 0;
 
         float randomNumber = Random.Range(0f, 1f);
-        Debug.Log(randomNumber);
 
         foreach (DropRate loot in loots)
         {
@@ -50,5 +51,9 @@ public class TestDrop : MonoBehaviour
         return null;
     }
 
+    public float GetSecondsAfterDestroyDrop()
+    {
+        return secondsAfterDestroyDrop;
+    }
 
 }

@@ -12,14 +12,14 @@ public class TestEnemy : MonoBehaviour
     [SerializeField] float currentHealth;
 
     private TestNexus target;
-    private TestDrop drop;
+    private TestDrop dropManager;
 
     private void Start()
     {
         target = FindObjectOfType<TestNexus>();
         currentHealth = originalHealth;
 
-        drop = GetComponent<TestDrop>();
+        dropManager = GetComponent<TestDrop>();
     }
 
     private void FixedUpdate()
@@ -63,10 +63,11 @@ public class TestEnemy : MonoBehaviour
 
     private void RandomDrop()
     {
-        GameObject reward = drop.GenerateRandomDrop();
+        GameObject reward = dropManager.GenerateRandomDrop();
         if (reward != null)
         {
-            Instantiate(reward, gameObject.transform.position, Quaternion.identity);
+            GameObject drop = Instantiate(reward, gameObject.transform.position, Quaternion.identity);
+            Destroy(drop.gameObject, dropManager.GetSecondsAfterDestroyDrop());
         }
     }
 
