@@ -50,11 +50,13 @@ MonoBehaviour:
   weaponDamage: 2
   fireRate: 0.07
   weaponRange: 1000
+  ammoCapacity: 5
   weaponMesh: {fileID: 8015025438328861035, guid: f44388dc1f9da4644ab196d4a4fc8860,
     type: 3}
   bulletMesh: {fileID: 8571258935772026993, guid: ee0d06ad6285041db81ed565ef756be2,
     type: 3}
   shootSound: {fileID: 8300000, guid: def54e9f1054d464499b162fe59d2da5, type: 3}
+  impactEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!1001 &5512399128955171119
 PrefabInstance:
   m_ObjectHideFlags: 0

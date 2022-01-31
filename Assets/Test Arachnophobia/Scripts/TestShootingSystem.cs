@@ -10,12 +10,11 @@ public class TestShootingSystem : MonoBehaviour
     [Header("Basic")]
     [SerializeField] TestWeapon[] weaponList;
     [SerializeField] TextMeshProUGUI cooldown;
+    [SerializeField] TextMeshProUGUI ammo;
     [SerializeField] float weaponRotationSpeed;
 
     [Header("Test")]
     [SerializeField] Transform weaponPos;
-    [SerializeField] GameObject bullet;
-
 
     public enum SelectedWeapon { Pistol = 0, Uzi = 1 , RocketLauncher = 2}
     public SelectedWeapon selectedWeapon;
@@ -28,19 +27,22 @@ public class TestShootingSystem : MonoBehaviour
     private TestWeapon currentWeapon;
     private GameObject currentWeaponMesh;
     private AudioSource audioSource;
+    public int ammoCounter;
 
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         standardWeapon = weaponList[0];
-        currentWeapon = standardWeapon;
+        currentWeapon = weaponList[2];
+        ammoCounter = currentWeapon.GetAmmoCapacity();
+        UpdateAmmoText();
     }
 
     private void FixedUpdate()
     {
-        currentWeapon = weaponList[(int) selectedWeapon];
-        currentWeaponMesh = currentWeapon.GetWeaponMesh();
+        //currentWeapon = weaponList[(int) selectedWeapon];
+        //currentWeaponMesh = currentWeapon.GetWeaponMesh();
         ShootRaycast();
         UpdateShootCooldown();
         //RotateWeaponMesh();
@@ -75,15 +77,49 @@ public class TestShootingSystem : MonoBehaviour
             if (Physics.Raycast(ray, out hit, currentWeapon.GetWeaponRange()))
             {
                 audioSource.PlayOneShot(currentWeapon.GetShootSound());
-                Instantiate(bullet, hit.point, Quaternion.identity); // TODO delete
+                Instantiate(currentWeapon.GetImpactEffect(), hit.point, Quaternion.LookRotation(hit.normal));
+
                 TestEnemy enemy = hit.collider.GetComponent<TestEnemy>();
 
                 if (enemy != null)
                 {
                     enemy.Damage(currentWeapon.GetDamage());
                 }
-
             }
+
+            UpdateAmmoCapability();
+
+        }
+    }
+
+    private void UpdateAmmoCapability()
+    {
+        if (currentWeapon != standardWeapon)
+        {
+            if (ammoCounter > 0)
+            {
+                ammoCounter--;
+
+                if (ammoCounter == 0)
+                {
+                    currentWeapon = standardWeapon;
+                    ammoCounter = currentWeapon.GetAmmoCapacity();
+                }
+            }
+
+            UpdateAmmoText();
+        }
+    }
+
+    private void UpdateAmmoText()
+    {
+        if (ammoCounter != -1)
+        {
+            ammo.text = ammoCounter.ToString();
+        }
+        else
+        {
+            ammo.text = "inf";
         }
     }
 
