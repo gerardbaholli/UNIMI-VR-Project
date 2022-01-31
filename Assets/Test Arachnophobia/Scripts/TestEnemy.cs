@@ -26,7 +26,7 @@ public class TestEnemy : MonoBehaviour
     {
         if (target != null)
         {
-            MoveTowardNexus();
+            //MoveTowardNexus();
         }
         else
         {
