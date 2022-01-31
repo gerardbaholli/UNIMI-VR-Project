@@ -81,10 +81,10 @@ MonoBehaviour:
   loots:
   - reward: {fileID: 5569457345321563296, guid: 04dc6ca2e138e4cea8fb8602bb64c0da,
       type: 3}
-    dropRate: 0.5
+    dropRate: 0.05
   - reward: {fileID: 1251895814159310046, guid: fb7769c963e95054581a8a7fbe425216,
       type: 3}
-    dropRate: 0.5
+    dropRate: 0.05
   noDropRate: 0
 --- !u!114 &4631737928966635690
 MonoBehaviour:

@@ -20,6 +20,24 @@ public class TestWeapon : MonoBehaviour
     [SerializeField] AudioClip shootSound;
     [SerializeField] GameObject impactEffect;
 
+    private TestShootingSystem shootingSystem;
+    private float weaponRotationSpeed;
+
+    private void Start()
+    {
+        shootingSystem = FindObjectOfType<TestShootingSystem>();
+    }
+
+    private void FixedUpdate()
+    {
+        RotateWeapon();
+    }
+
+    private void RotateWeapon()
+    {
+        weaponRotationSpeed = shootingSystem.GetWeaponRotationSpeed();
+        gameObject.transform.Rotate(Vector3.up * (weaponRotationSpeed * Time.deltaTime));
+    }
 
     public int GetWeaponID()
     {

@@ -48,10 +48,7 @@ public class TestShootingSystem : MonoBehaviour
         //RotateWeaponMesh();
     }
 
-    private void RotateWeaponMesh()
-    {
-        currentWeaponMesh.transform.Rotate(Vector3.up * (weaponRotationSpeed * Time.deltaTime));
-    }
+
 
     private void UpdateShootCooldown()
     {
@@ -126,6 +123,11 @@ public class TestShootingSystem : MonoBehaviour
     public TestWeapon GetCurrentWeapon()
     {
         return currentWeapon;
+    }
+
+    public float GetWeaponRotationSpeed()
+    {
+        return weaponRotationSpeed;
     }
 
 }
