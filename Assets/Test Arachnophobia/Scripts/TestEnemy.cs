@@ -9,7 +9,8 @@ public class TestEnemy : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float damage;
     [SerializeField] float originalHealth;
-    [SerializeField] float currentHealth;
+    public float currentHealth;
+    [SerializeField] int pointsForKilling;
 
     private TestNexus target;
     private TestDrop dropManager;
@@ -69,6 +70,11 @@ public class TestEnemy : MonoBehaviour
             GameObject drop = Instantiate(reward, gameObject.transform.position, Quaternion.identity);
             Destroy(drop.gameObject, dropManager.GetSecondsAfterDestroyDrop());
         }
+    }
+
+    public int GetPointsForKilling()
+    {
+        return pointsForKilling;
     }
 
 

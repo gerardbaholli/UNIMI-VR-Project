@@ -13,7 +13,6 @@ public class TestNexus : MonoBehaviour
     void Start()
     {
         currentLife = originalLife;
-
     }
 
     void FixedUpdate()

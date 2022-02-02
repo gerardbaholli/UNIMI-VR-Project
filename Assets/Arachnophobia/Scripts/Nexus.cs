@@ -7,7 +7,8 @@ public class Nexus : MonoBehaviour
 
     [SerializeField] float originalLife;
 
-    private float currentLife;
+    public float currentLife;
+
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class Nexus : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void ApplyDamage(float damage)
+    public void InflictDamage(float damage)
     {
         currentLife -= damage;
     }

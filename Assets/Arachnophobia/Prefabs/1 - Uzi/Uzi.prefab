@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5569457345321563302}
-  - component: {fileID: 5569457345321563297}
+  - component: {fileID: 2070368794671353723}
   - component: {fileID: 1680081392215286188}
+  - component: {fileID: 5569457345321563297}
   m_Layer: 0
   m_Name: Uzi
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5569457345321563297
+--- !u!114 &2070368794671353723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5569457345321563296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e89925a2b594738ab9c2c4457b8ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: aeceb97d797b84829acda39a2e84ba2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponID: 1
@@ -73,6 +74,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5569457345321563297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569457345321563296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e89925a2b594738ab9c2c4457b8ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponID: 1
+  weaponName: Uzi
+  weaponDamage: 2
+  fireRate: 0.07
+  weaponRange: 1000
+  ammoCapacity: 300
+  AOEDamage: 0
+  AOERadius: 0
+  weaponMesh: {fileID: 8015025438328861035, guid: f44388dc1f9da4644ab196d4a4fc8860,
+    type: 3}
+  bulletMesh: {fileID: 8571258935772026993, guid: ee0d06ad6285041db81ed565ef756be2,
+    type: 3}
+  shootSound: {fileID: 8300000, guid: def54e9f1054d464499b162fe59d2da5, type: 3}
+  impactEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!1001 &5512399128955171119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}
@@ -113,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}
@@ -128,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8015025438328368459, guid: f44388dc1f9da4644ab196d4a4fc8860,
         type: 3}

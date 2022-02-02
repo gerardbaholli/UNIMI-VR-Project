@@ -6,24 +6,30 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [Range(0f, 20f)] [SerializeField] float speed;
+    [SerializeField] float speed;
     [SerializeField] float damage;
+    [SerializeField] float originalHealth;
+    public float currentHealth;
     [SerializeField] int pointsForKilling;
-    //[SerializeField] float life;
 
+    private GameStatus gameStatus;
     private Nexus target;
-    
+    private Drop dropManager;
 
     private void Start()
     {
+        gameStatus = FindObjectOfType<GameStatus>();
         target = FindObjectOfType<Nexus>();
+        currentHealth = originalHealth;
+
+        dropManager = GetComponent<Drop>();
     }
 
     private void FixedUpdate()
     {
         if (target != null)
         {
-            MoveTowardNexus();
+            //MoveTowardNexus();
         }
         else
         {
@@ -39,17 +45,34 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enemy OnTriggerEnter with " + other.gameObject.name);
-
         if (other.gameObject.tag == target.tag)
         {
-            target.ApplyDamage(damage);
+            target.InflictDamage(damage);
             Destroy(gameObject);
         }
     }
 
-    public int GetPointsForKilling()
+
+    public void Damage(float damageAmount)
     {
-        return pointsForKilling;
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0)
+        {
+            gameStatus.AddPointsToScore(pointsForKilling);
+            RandomDrop();
+            Destroy(gameObject);
+        }
     }
+
+    private void RandomDrop()
+    {
+        GameObject reward = dropManager.GenerateRandomDrop();
+        if (reward != null)
+        {
+            GameObject drop = Instantiate(reward, gameObject.transform.position, Quaternion.identity);
+            Destroy(drop.gameObject, dropManager.GetSecondsAfterDestroyDrop());
+        }
+    }
+
 }

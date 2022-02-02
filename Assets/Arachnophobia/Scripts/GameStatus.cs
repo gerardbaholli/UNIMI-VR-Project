@@ -8,9 +8,6 @@ public class GameStatus : MonoBehaviour
 
     [SerializeField] UIManager uiManager;
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] SpawnPoint[] spawnPoints;
-    [SerializeField] Enemy enemy;
-    [SerializeField] float spawnCooldown;
 
     private Nexus nexus;
     private bool isGameStarted;
@@ -34,8 +31,6 @@ public class GameStatus : MonoBehaviour
     private void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
-        nexus = FindObjectOfType<Nexus>();
-
         isGameStarted = false;
         score = 0;
     }
@@ -51,9 +46,19 @@ public class GameStatus : MonoBehaviour
         uiManager.ShowGameUI();
         isGameStarted = true;
         nexus = FindObjectOfType<Nexus>();
-        StartCoroutine(SpawnEnemies());
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public void AddPointsToScore(int value)
+    {
+        score += value;
+    }
+
+    /*
     private IEnumerator SpawnEnemies()
     {
         Instantiate(enemy, spawnPoints[0].transform.position,
@@ -72,15 +77,5 @@ public class GameStatus : MonoBehaviour
 
         StartCoroutine(SpawnEnemies());
     }
-
-    public int GetScore()
-    {
-        return score;
-    }
-
-    public void AddPointsToScore(int value)
-    {
-        score += value;
-    }
-
+    */
 }
