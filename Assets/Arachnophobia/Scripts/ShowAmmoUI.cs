@@ -5,12 +5,12 @@ using UnityEngine;
 public class ShowAmmoUI : MonoBehaviour
 {
 
-    private TestShootingSystem shootingSystem;
+    private ShootingSystem shootingSystem;
     private int selectedWeapon;
 
     private void Start()
     {
-        shootingSystem = FindObjectOfType<TestShootingSystem>();
+        shootingSystem = FindObjectOfType<ShootingSystem>();
     }
 
     private void FixedUpdate()
