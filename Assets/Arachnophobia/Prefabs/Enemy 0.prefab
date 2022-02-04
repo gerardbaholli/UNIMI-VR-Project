@@ -14,10 +14,8 @@ GameObject:
   - component: {fileID: -8719847849767634809}
   - component: {fileID: -7769271775319812194}
   - component: {fileID: 8626124922943618120}
-  - component: {fileID: 4631737928966635690}
-  - component: {fileID: 6019905884684686402}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,43 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &4631737928966635690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631737928966635692}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb174ea7d8eb2463e8b96c66c99c389e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  damage: 1.5
-  originalHealth: 2
-  currentHealth: 2
-  pointsForKilling: 0
---- !u!114 &6019905884684686402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4631737928966635692}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf73969734f053a48992c89143fa129a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loots:
-  - reward: {fileID: 5569457345321563296, guid: 04dc6ca2e138e4cea8fb8602bb64c0da,
-      type: 3}
-    dropRate: 0.05
-  - reward: {fileID: 1251895814159310046, guid: fb7769c963e95054581a8a7fbe425216,
-      type: 3}
-    dropRate: 0.05
-  secondsAfterDestroyDrop: 5
 --- !u!1001 &5168487419912301023
 PrefabInstance:
   m_ObjectHideFlags: 0

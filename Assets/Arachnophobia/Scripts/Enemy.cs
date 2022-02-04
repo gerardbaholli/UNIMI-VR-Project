@@ -71,6 +71,7 @@ public class Enemy : MonoBehaviour
         if (reward != null)
         {
             GameObject drop = Instantiate(reward, gameObject.transform.position, Quaternion.identity);
+            drop.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             Destroy(drop.gameObject, dropManager.GetSecondsAfterDestroyDrop());
         }
     }
