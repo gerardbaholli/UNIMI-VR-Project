@@ -10,7 +10,7 @@ public class ShootingSystem : MonoBehaviour
 
     // DESIGN
     [Header("Basic")]
-    [SerializeField] GameObject arCamera;
+    [SerializeField] Camera arCamera;
     [SerializeField] Weapon[] weaponList;
     [SerializeField] TextMeshProUGUI cooldown;
     [SerializeField] TextMeshProUGUI ammo;
@@ -91,6 +91,7 @@ public class ShootingSystem : MonoBehaviour
         Weapon drop = hit.collider.GetComponent<Weapon>();
         if (drop != null)
         {
+            nextFire = Time.time;
             currentWeapon = weaponList[drop.GetWeaponID()];
             ammoCounter = currentWeapon.GetAmmoCapacity();
             UpdateAmmoText();

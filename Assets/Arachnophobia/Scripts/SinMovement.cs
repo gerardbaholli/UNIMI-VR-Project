@@ -6,11 +6,11 @@ public class SinMovement : MonoBehaviour
 {
     [SerializeField] float speed;
 
-    private TestNexus target;
+    private Nexus target;
 
     private void Start()
     {
-        target = FindObjectOfType<TestNexus>();
+        target = FindObjectOfType<Nexus>();
     }
 
     private void FixedUpdate()
