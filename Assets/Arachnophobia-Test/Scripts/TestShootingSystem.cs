@@ -34,7 +34,7 @@ public class TestShootingSystem : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         standardWeapon = weaponList[0];
-        currentWeapon = weaponList[2];
+        currentWeapon = weaponList[1];
         ammoCounter = currentWeapon.GetAmmoCapacity();
         UpdateAmmoText();
     }

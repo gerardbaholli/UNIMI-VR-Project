@@ -9,7 +9,6 @@ public class TestNexus : MonoBehaviour
 
     public float currentLife;
 
-
     void Start()
     {
         currentLife = originalLife;

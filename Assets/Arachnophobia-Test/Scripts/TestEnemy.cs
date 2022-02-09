@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class TestEnemy : MonoBehaviour
 {
@@ -9,30 +11,32 @@ public class TestEnemy : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float damage;
     [SerializeField] float originalHealth;
-    public float currentHealth;
     [SerializeField] int pointsForKilling;
 
+    [SerializeField] Image healthbar;
+
     private TestNexus target;
-    private TestDrop dropManager;
+    private float currentHealth;
 
     private void Start()
     {
         target = FindObjectOfType<TestNexus>();
         currentHealth = originalHealth;
-
-        dropManager = GetComponent<TestDrop>();
     }
 
     private void FixedUpdate()
     {
-        if (target != null)
-        {
-            //MoveTowardNexus();
-        }
-        else
-        {
+        if (target == null)
             Destroy(gameObject);
-        }
+
+        UpdateHealthbar();
+    }
+
+    private void UpdateHealthbar()
+    {
+        healthbar.fillAmount = currentHealth / originalHealth;
+
+        Debug.Log(healthbar.fillAmount);
     }
 
     private void MoveTowardNexus()
@@ -57,24 +61,18 @@ public class TestEnemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            RandomDrop();
             Destroy(gameObject);
-        }
-    }
-
-    private void RandomDrop()
-    {
-        GameObject reward = dropManager.GenerateRandomDrop();
-        if (reward != null)
-        {
-            GameObject drop = Instantiate(reward, gameObject.transform.position, Quaternion.identity);
-            Destroy(drop.gameObject, dropManager.GetSecondsAfterDestroyDrop());
         }
     }
 
     public int GetPointsForKilling()
     {
         return pointsForKilling;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
     }
 
 
