@@ -9,6 +9,12 @@ public class GameStatus : MonoBehaviour
     [SerializeField] UIManager uiManager;
     [SerializeField] TextMeshProUGUI scoreText;
 
+    [Header("Player Stats")]
+    [SerializeField] float dmgAmount;
+    [SerializeField] float shootSpeed;
+    [SerializeField] TextMeshProUGUI dmgAmountText;
+    [SerializeField] TextMeshProUGUI shootSpeedText;
+
     private Nexus nexus;
     private bool isGameStarted;
     private int score;
@@ -33,6 +39,10 @@ public class GameStatus : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         isGameStarted = false;
         score = 0;
+        dmgAmount = 1f;
+        shootSpeed = 1f;
+        dmgAmountText.text = dmgAmount.ToString("F2");
+        shootSpeedText.text = shootSpeed.ToString("F2");
     }
 
     public bool IsGameStarted()
@@ -58,24 +68,34 @@ public class GameStatus : MonoBehaviour
         score += value;
     }
 
-    /*
-    private IEnumerator SpawnEnemies()
+    public void SetDmgBonus(float value)
     {
-        Instantiate(enemy, spawnPoints[0].transform.position,
-            Quaternion.LookRotation(nexus.transform.position - spawnPoints[0].transform.position));
-
-        Instantiate(enemy, spawnPoints[1].transform.position,
-            Quaternion.LookRotation(nexus.transform.position - spawnPoints[1].transform.position));
-
-        Instantiate(enemy, spawnPoints[2].transform.position,
-            Quaternion.LookRotation(nexus.transform.position - spawnPoints[2].transform.position));
-
-        Instantiate(enemy, spawnPoints[3].transform.position,
-            Quaternion.LookRotation(nexus.transform.position - spawnPoints[3].transform.position));
-
-        yield return new WaitForSeconds(spawnCooldown);
-
-        StartCoroutine(SpawnEnemies());
+        dmgAmount = value;
     }
-    */
+
+    public void AddDmgBonus(float value)
+    {
+        dmgAmount += value;
+    }
+
+    public float GetDmgBonus()
+    {
+        return dmgAmount;
+    }
+
+    public void SetShootSpeed(float value)
+    {
+        shootSpeed = value;
+    }
+
+    public void AddShootSpeed(float value)
+    {
+        shootSpeed += value;
+    }
+
+    public float GetShootSpeed()
+    {
+        return shootSpeed;
+    }
+
 }

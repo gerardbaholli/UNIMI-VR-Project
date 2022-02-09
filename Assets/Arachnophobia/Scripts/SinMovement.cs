@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SinMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
-
     private Nexus target;
+    private float speed;
 
     private void Start()
     {
         target = FindObjectOfType<Nexus>();
+        speed = GetComponent<Enemy>().GetSpeed();
     }
 
     private void FixedUpdate()

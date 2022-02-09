@@ -9,12 +9,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float damage;
     [SerializeField] float originalHealth;
-    public float currentHealth;
     [SerializeField] int pointsForKilling;
+
+    [SerializeField] GameObject impactOnNexusEffect;
+    [SerializeField] GameObject destroyEffect;
 
     private GameStatus gameStatus;
     private Nexus target;
     private Drop dropManager;
+    float currentHealth;
 
     private void Start()
     {
@@ -48,6 +51,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.tag == target.tag)
         {
             target.InflictDamage(damage);
+            Instantiate(impactOnNexusEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour
         {
             gameStatus.AddPointsToScore(pointsForKilling);
             RandomDrop();
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -74,6 +79,11 @@ public class Enemy : MonoBehaviour
             drop.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             Destroy(drop.gameObject, dropManager.GetSecondsAfterDestroyDrop());
         }
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
     }
 
 }

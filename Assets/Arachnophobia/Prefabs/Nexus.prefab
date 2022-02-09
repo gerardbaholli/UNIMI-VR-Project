@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalLife: 100
+  destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   currentLife: 0
 --- !u!54 &5316233214109096798
 Rigidbody:
