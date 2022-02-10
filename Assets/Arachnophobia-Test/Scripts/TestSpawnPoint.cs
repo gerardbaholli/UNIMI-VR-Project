@@ -26,19 +26,22 @@ public class TestSpawnPoint : MonoBehaviour
         
     }
 
-    public bool IsTargetAlive()
+    private bool IsTargetAlive()
     {
         return (nexus != null) ? true : false;
     }
 
     private IEnumerator SpawnEnemies()
     {
-        Instantiate(enemy, gameObject.transform.position,
+        if (IsTargetAlive())
+        {
+            Instantiate(enemy, gameObject.transform.position,
             Quaternion.LookRotation(nexus.transform.position - gameObject.transform.position));
 
-        yield return new WaitForSeconds(spawnCooldown);
+            yield return new WaitForSeconds(spawnCooldown);
 
-        StartCoroutine(SpawnEnemies());
+            StartCoroutine(SpawnEnemies());
+        }
     }
 
 }

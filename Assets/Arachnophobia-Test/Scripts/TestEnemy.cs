@@ -7,12 +7,17 @@ using UnityEngine.UI;
 
 public class TestEnemy : MonoBehaviour
 {
-
+    [Header("Stats")]
     [SerializeField] float speed;
     [SerializeField] float damage;
     [SerializeField] float originalHealth;
     [SerializeField] int pointsForKilling;
 
+    [Header("Destroy")]
+    [SerializeField] GameObject destroyEffect;
+    [SerializeField] AudioClip destroySound;
+
+    [Header("Graphic")]
     [SerializeField] Image healthbar;
 
     private TestNexus target;
@@ -35,14 +40,6 @@ public class TestEnemy : MonoBehaviour
     private void UpdateHealthbar()
     {
         healthbar.fillAmount = currentHealth / originalHealth;
-
-        Debug.Log(healthbar.fillAmount);
-    }
-
-    private void MoveTowardNexus()
-    {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +47,8 @@ public class TestEnemy : MonoBehaviour
         if (other.gameObject.tag == target.tag)
         {
             target.InflictDamage(damage);
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(destroySound, transform.position);
             Destroy(gameObject);
         }
     }
@@ -61,6 +60,8 @@ public class TestEnemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(destroySound, transform.position);
             Destroy(gameObject);
         }
     }

@@ -61,7 +61,7 @@ public class TestShootingSystem : MonoBehaviour
 
     private void ShootRaycast()
     {
-        if (Input.GetMouseButton(0) && Time.time > nextFire)
+        if (Input.GetMouseButton(1) && Time.time > nextFire)
         {
             nextFire = Time.time + currentWeapon.GetFireRate();
 
