@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb174ea7d8eb2463e8b96c66c99c389e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 3
   damage: 1
   originalHealth: 3
   pointsForKilling: 1
@@ -461,6 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a41a97efa1ed6f48a3fb97e8a38d149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToAttack: 10
+  fsmUpdateTimer: 0.01
 --- !u!1001 &6602323203468983893
 PrefabInstance:
   m_ObjectHideFlags: 0
