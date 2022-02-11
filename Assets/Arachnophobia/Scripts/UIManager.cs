@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateLife()
     {
-        life.text = nexus.GetCurrentLife().ToString();
+        life.text = ((int) nexus.GetCurrentLife()).ToString();
     }
 
     private void UpdateScore()

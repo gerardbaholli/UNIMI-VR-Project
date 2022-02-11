@@ -2,17 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-
+    [Header("Stats")]
     [SerializeField] float speed;
     [SerializeField] float damage;
     [SerializeField] float originalHealth;
     [SerializeField] int pointsForKilling;
 
+    [Header("Destroy")]
     [SerializeField] GameObject impactOnNexusEffect;
     [SerializeField] GameObject destroyEffect;
+
+    [Header("Graphic")]
+    [SerializeField] Image healthbar;
 
     private GameStatus gameStatus;
     private Nexus target;
@@ -30,20 +35,15 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (target != null)
-        {
-            //MoveTowardNexus();
-        }
-        else
-        {
+        if (target == null)
             Destroy(gameObject);
-        }
+
+        UpdateHealthbar();
     }
 
-    private void MoveTowardNexus()
+    private void UpdateHealthbar()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+        healthbar.fillAmount = currentHealth / originalHealth;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -162,23 +162,4 @@ public class ShootingSystem : MonoBehaviour
         return weaponRotationSpeed;
     }
 
-
-    /* DELETE
-    public void Shoot()
-    {
-        audioSource.PlayOneShot(pistolSound);
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit))
-        {
-            if (hit.transform.tag == "Enemy")
-            {
-                gameStatus.AddPointsToScore(hit.transform.gameObject.GetComponent<Enemy>().GetPointsForKilling());
-                Destroy(hit.transform.gameObject);
-            }
-        }
-    }
-    */
-
 }

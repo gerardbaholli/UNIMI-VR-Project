@@ -67,9 +67,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83be6a7f815d4bddbbdaf99f5f7c47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalLife: 100
-  destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
+  originalLife: 50
   currentLife: 0
+  destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
+  fireEffect: {fileID: 100004, guid: cdd71635203c8ed47a18dcefce87463e, type: 3}
+  destroySound1: {fileID: 8300000, guid: 71fa32df884d3cb43a9153497b1e7fef, type: 3}
+  destroySound2: {fileID: 8300000, guid: 2bb692ed3a23ec84f85d847a6579946e, type: 3}
+  healthbar: {fileID: 0}
 --- !u!54 &5316233214109096798
 Rigidbody:
   m_ObjectHideFlags: 0

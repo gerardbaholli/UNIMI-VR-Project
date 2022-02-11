@@ -5,14 +5,22 @@ using UnityEngine.EventSystems;
 
 public class ShootHandler : MonoBehaviour, IUpdateSelectedHandler, IPointerDownHandler, IPointerUpHandler
 {
+
+    private ShootingSystem shootingSystem;
+
     public bool isPressed;
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        shootingSystem = FindObjectOfType<ShootingSystem>();
+    }
+
     public void OnUpdateSelected(BaseEventData data)
     {
         if (isPressed)
         {
             Debug.Log("SHOOT");
+            shootingSystem.ShootRaycast();
         }
     }
     public void OnPointerDown(PointerEventData data)
