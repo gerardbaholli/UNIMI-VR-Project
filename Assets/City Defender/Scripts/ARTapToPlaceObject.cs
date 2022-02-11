@@ -11,6 +11,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     [SerializeField] GameObject placementIndicator;
 
     private UIManager uiManager;
+    private GameStatus gameStatus;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -20,6 +21,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     private void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
+        gameStatus = FindObjectOfType<GameStatus>();
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
     }
 
@@ -39,7 +41,8 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             isObjectPlaced = true;
             Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
-            uiManager.ShowStartUI();
+            gameStatus.StartGame();
+            uiManager.ShowGameUI();
         }
     }
 

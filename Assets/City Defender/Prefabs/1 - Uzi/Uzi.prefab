@@ -50,9 +50,9 @@ MonoBehaviour:
   weaponID: 1
   weaponName: Uzi
   weaponDamage: 2
-  fireRate: 0.07
+  fireRate: 0.1
   weaponRange: 1000
-  ammoCapacity: 300
+  ammoCapacity: 100
   AOEDamage: 0
   AOERadius: 0
   weaponMesh: {fileID: 8015025438328861035, guid: f44388dc1f9da4644ab196d4a4fc8860,

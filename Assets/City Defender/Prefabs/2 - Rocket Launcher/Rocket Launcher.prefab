@@ -49,11 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponID: 2
   weaponName: Rocket Launcher
-  weaponDamage: 3
-  fireRate: 2
+  weaponDamage: 5
+  fireRate: 1.2
   weaponRange: 1000
-  ammoCapacity: 10
-  AOEDamage: 3
+  ammoCapacity: 5
+  AOEDamage: 5
   AOERadius: 4
   weaponMesh: {fileID: 1313831188739372281, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
     type: 3}

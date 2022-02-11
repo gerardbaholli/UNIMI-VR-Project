@@ -36,7 +36,7 @@ public class ShootingSystem : MonoBehaviour
         gameStatus = FindObjectOfType<GameStatus>();
         audioSource = GetComponent<AudioSource>();
         standardWeapon = weaponList[0];
-        currentWeapon = weaponList[2];
+        currentWeapon = weaponList[0];
         ammoCounter = currentWeapon.GetAmmoCapacity();
         UpdateAmmoText();
     }
