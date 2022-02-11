@@ -42,6 +42,7 @@ public class SceneLoader : MonoBehaviour
 
     public void ReloadScene(float delayOnSceneLoad)
     {
+        Destroy(gameStatus);
         StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex, delayOnSceneLoad));
     }
 

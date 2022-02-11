@@ -65,7 +65,7 @@ public class FSMSinMovement : MonoBehaviour
         float step = speed * Time.deltaTime;
 
         transform.LookAt(target.transform);
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step * 3);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step * 2);
     }
 
 }

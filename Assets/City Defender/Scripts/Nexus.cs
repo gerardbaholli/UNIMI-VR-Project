@@ -27,7 +27,10 @@ public class Nexus : MonoBehaviour
     void FixedUpdate()
     {
         if (healthbarImage == null)
+        {
+            Debug.Log("healthbarImage is NULL: " + healthbarImage);
             healthbarImage = FindObjectOfType<Healthbar>().GetComponent<Image>();
+        }
 
 
         CheckLife();
