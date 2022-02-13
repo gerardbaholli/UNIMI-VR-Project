@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83be6a7f815d4bddbbdaf99f5f7c47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalLife: 50
+  originalLife: 100
   currentLife: 0
   destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   fireEffect: {fileID: 100004, guid: cdd71635203c8ed47a18dcefce87463e, type: 3}
@@ -152,7 +152,7 @@ MonoBehaviour:
   - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
   - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   startingSpawnCooldown: 5
-  decreasingAmount: 0.06
+  decreasingAmount: 0.1
   minSpawnCooldown: 0.3
   spawnCooldown: 0
 --- !u!1001 &588971794485696799

@@ -43,6 +43,7 @@ public class ARTapToPlaceObject : MonoBehaviour
             Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
             gameStatus.StartGame();
             uiManager.ShowGameUI();
+            placementIndicator.SetActive(false);
         }
     }
 

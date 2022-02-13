@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using System;
 
 public class ShootingSystem : MonoBehaviour
 {
@@ -81,9 +82,20 @@ public class ShootingSystem : MonoBehaviour
                 {
                     CheckDropHit(hit);
                 }
+                else if (hit.transform.tag == "Grenade")
+                {
+                    CheckGrenadeHit(hit);
+                }
             }
             UpdateAmmoCapability();
         }
+    }
+
+    private void CheckGrenadeHit(RaycastHit hit)
+    {
+        Grenade drop = hit.collider.GetComponent<Grenade>();
+        drop.TriggerEffect();
+        Destroy(drop.gameObject);
     }
 
     private void CheckDropHit(RaycastHit hit)
@@ -104,7 +116,7 @@ public class ShootingSystem : MonoBehaviour
         Enemy enemy = hit.collider.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.Damage(currentWeapon.GetDamage());
+            enemy.InflictDamage(currentWeapon.GetDamage());
         }
 
         if (currentWeapon.GetAOEDamage() > 0)
@@ -115,7 +127,7 @@ public class ShootingSystem : MonoBehaviour
                 enemy = hitCol.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.Damage(currentWeapon.GetAOEDamage());
+                    enemy.InflictDamage(currentWeapon.GetAOEDamage());
                 }
             }
         }

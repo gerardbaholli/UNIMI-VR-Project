@@ -52,7 +52,7 @@ MonoBehaviour:
   weaponDamage: 2
   fireRate: 0.1
   weaponRange: 1000
-  ammoCapacity: 100
+  ammoCapacity: 75
   AOEDamage: 0
   AOERadius: 0
   weaponMesh: {fileID: 8015025438328861035, guid: f44388dc1f9da4644ab196d4a4fc8860,

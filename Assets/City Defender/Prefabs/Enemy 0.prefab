@@ -495,6 +495,9 @@ MonoBehaviour:
   - reward: {fileID: 1251895814159310046, guid: fb7769c963e95054581a8a7fbe425216,
       type: 3}
     dropRate: 0.1
+  - reward: {fileID: 3085558512943759910, guid: 60d7b1af21dfe1e46b9ca6d0dc6abbc5,
+      type: 3}
+    dropRate: 0.02
   secondsAfterDestroyDrop: 5
 --- !u!114 &-7769271775319812194
 MonoBehaviour:
@@ -528,10 +531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathCreatorList:
-  - {fileID: 7485638286878990234, guid: 9e830df27f2a0d24899ebf49cf688a27, type: 3}
-  - {fileID: 8885547106194252746, guid: 355063f2147e60041ab7deb6b123ebbb, type: 3}
-  - {fileID: 3555838022515755773, guid: 22b4a4ec2d7f60941a9f11f869242692, type: 3}
-  - {fileID: 6684017526829746221, guid: 242dc8bc5caa81a469072d50e462b5ab, type: 3}
+  - {fileID: 4011899355139683358, guid: 9e830df27f2a0d24899ebf49cf688a27, type: 3}
+  - {fileID: 2965694261787790144, guid: 355063f2147e60041ab7deb6b123ebbb, type: 3}
+  - {fileID: 367069267963187766, guid: 22b4a4ec2d7f60941a9f11f869242692, type: 3}
+  - {fileID: 4158617150805002743, guid: 242dc8bc5caa81a469072d50e462b5ab, type: 3}
   pathCreator: {fileID: 5854893638432044124, guid: 9e830df27f2a0d24899ebf49cf688a27,
     type: 3}
   endOfPathInstruction: 0

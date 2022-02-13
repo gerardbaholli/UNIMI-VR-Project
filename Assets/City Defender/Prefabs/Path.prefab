@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8434641512962236512
+--- !u!1 &2684893789589654500
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7897036785269600740}
-  - component: {fileID: 7485638286878990234}
+  - component: {fileID: 4456483857405549152}
+  - component: {fileID: 4011899355139683358}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7897036785269600740
+--- !u!4 &4456483857405549152
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434641512962236512}
+  m_GameObject: {fileID: 2684893789589654500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7485638286878990234
+--- !u!114 &4011899355139683358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434641512962236512}
+  m_GameObject: {fileID: 2684893789589654500}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
@@ -47,13 +47,13 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -5.204009, y: 12.36512, z: 9.8125}
-      - {x: -4.0163794, y: 13.022446, z: -5.6562233}
-      - {x: 2.8580315, y: 23.523434, z: -10.171809}
-      - {x: 4.7376547, y: 10.84579, z: -11.30885}
-      - {x: 7.177024, y: 1.8613653, z: -11.003634}
-      - {x: 0.7317958, y: 3.6369424, z: -12.020071}
-      - {x: 1.3724216, y: 1.0374818, z: -0.6542976}
+      - {x: -1.3836609, y: 13.359397, z: 0.26953125}
+      - {x: 0.11438596, y: 12.194156, z: -3.4294093}
+      - {x: 2.4023438, y: 10.52383, z: -4.2871356}
+      - {x: 2.9042969, y: 7.7390847, z: -4.734631}
+      - {x: 3.5214844, y: 5.4539175, z: -4.642011}
+      - {x: -0.6582031, y: 3.4100995, z: -4.7567186}
+      - {x: -0.026443958, y: 0.8106389, z: -0.6542969}
       isClosed: 0
       space: 0
       controlMode: 2

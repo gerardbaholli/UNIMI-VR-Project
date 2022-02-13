@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour
         Debug.Log(spawnPosition);
 
 
-        Enemy enemy = enemyList[Random.Range(0, numberOfEnemy - 1)];
+        Enemy enemy = enemyList[Random.Range(0, numberOfEnemy)];
         Debug.Log(enemy.name);
 
         Instantiate(enemy, gameObject.transform.position + spawnPosition,

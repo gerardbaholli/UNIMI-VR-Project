@@ -7,6 +7,8 @@ TagManager:
   - Nexus
   - Enemy
   - Weapon
+  - FxTemporaire
+  - Grenade
   layers:
   - Default
   - TransparentFX

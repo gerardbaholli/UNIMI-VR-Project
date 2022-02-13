@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1251895814159310044}
   - component: {fileID: -2346188231116028409}
-  - component: {fileID: -5841965902893877259}
-  - component: {fileID: 1251895814159310047}
+  - component: {fileID: 4115788434911524171}
   m_Layer: 0
   m_Name: Rocket Launcher
   m_TagString: Weapon
@@ -52,7 +51,7 @@ MonoBehaviour:
   weaponDamage: 5
   fireRate: 1.2
   weaponRange: 1000
-  ammoCapacity: 5
+  ammoCapacity: 6
   AOEDamage: 5
   AOERadius: 4
   weaponMesh: {fileID: 1313831188739372281, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
@@ -61,8 +60,8 @@ MonoBehaviour:
     type: 3}
   shootSound: {fileID: 8300000, guid: 8f3ec19f7a952e641b6c826080c70423, type: 3}
   impactEffect: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}
---- !u!135 &-5841965902893877259
-SphereCollider:
+--- !u!136 &4115788434911524171
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -71,35 +70,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1251895814159310047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251895814159310046}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e89925a2b594738ab9c2c4457b8ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponID: 2
-  weaponName: Rocket Launcher
-  weaponDamage: 3
-  fireRate: 2
-  weaponRange: 1000
-  ammoCapacity: 10
-  AOEDamage: 3
-  AOERadius: 4
-  weaponMesh: {fileID: 1313831188739372281, guid: cd14e4cc5f8c83a45b8d266a8775a70f,
-    type: 3}
-  bulletMesh: {fileID: 6788104287312467808, guid: 6b66aadcb71e7dc419e0d82b0187ef67,
-    type: 3}
-  shootSound: {fileID: 8300000, guid: 8f3ec19f7a952e641b6c826080c70423, type: 3}
-  impactEffect: {fileID: 100008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}
+  m_Radius: 0.41571957
+  m_Height: 3.407534
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.17471743, z: -0.046810746}
 --- !u!1001 &838406550
 PrefabInstance:
   m_ObjectHideFlags: 0

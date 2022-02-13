@@ -446,10 +446,13 @@ MonoBehaviour:
   loots:
   - reward: {fileID: 5569457345321563296, guid: 04dc6ca2e138e4cea8fb8602bb64c0da,
       type: 3}
-    dropRate: 0.3
+    dropRate: 0.1
   - reward: {fileID: 1251895814159310046, guid: fb7769c963e95054581a8a7fbe425216,
       type: 3}
-    dropRate: 0.3
+    dropRate: 0.1
+  - reward: {fileID: 3085558512943759910, guid: 60d7b1af21dfe1e46b9ca6d0dc6abbc5,
+      type: 3}
+    dropRate: 0.02
   secondsAfterDestroyDrop: 5
 --- !u!114 &-7636976184935689385
 MonoBehaviour:
