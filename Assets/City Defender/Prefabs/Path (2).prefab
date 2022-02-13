@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727022798933880268}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,11 +47,11 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -1.3836609, y: 13.359397, z: 0.26953125}
-      - {x: 0.11438596, y: 12.194156, z: -3.4294093}
-      - {x: 2.4023438, y: 10.52383, z: -4.2871356}
-      - {x: 2.9042969, y: 7.7390847, z: -4.734631}
-      - {x: 3.5214844, y: 5.4539175, z: -4.642011}
+      - {x: 0.15543962, y: 38.595463, z: 0.1640625}
+      - {x: 1.6534865, y: 37.43022, z: -3.534878}
+      - {x: 4.9810667, y: 24.959274, z: -6.884536}
+      - {x: 5.48302, y: 22.17453, z: -7.3320312}
+      - {x: 6.100207, y: 19.889364, z: -7.2394114}
       - {x: -0.6582031, y: 3.4100995, z: -4.7567186}
       - {x: -0.026443958, y: 0.8106389, z: -0.6542969}
       isClosed: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
