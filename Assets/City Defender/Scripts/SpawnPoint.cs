@@ -22,9 +22,7 @@ public class SpawnPoint : MonoBehaviour
     private void FixedUpdate()
     {
         if (!gameStatus.IsGameStarted())
-        {
             return;
-        }
 
         if (!isCoroutineStarted)
         {
@@ -36,17 +34,14 @@ public class SpawnPoint : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        if (IsTargetAlive())
-        {
-            Enemy enemy = enemyList[Random.Range(0, numberOfEnemy - 1)];
-            Debug.Log(enemy.name);
-            Instantiate(enemy, gameObject.transform.position,
-            Quaternion.LookRotation(nexus.transform.position - gameObject.transform.position));
+        Enemy enemy = enemyList[Random.Range(0, numberOfEnemy)];
+        Debug.Log(enemy.name);
+        Instantiate(enemy, gameObject.transform.position,
+        Quaternion.LookRotation(nexus.transform.position - gameObject.transform.position));
 
-            yield return new WaitForSeconds(spawnCooldown);
+        yield return new WaitForSeconds(spawnCooldown);
 
-            StartCoroutine(SpawnEnemies());
-        }
+        StartCoroutine(SpawnEnemies());
     }
 
     public bool IsTargetAlive()

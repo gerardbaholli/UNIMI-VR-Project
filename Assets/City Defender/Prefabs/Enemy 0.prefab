@@ -356,9 +356,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -367,22 +367,67 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 1.0000076
+      inSlope: -100.03984
+      outSlope: -100.03984
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.001090087
+      value: 0.69114685
+      inSlope: -6.25249
+      outSlope: -6.25249
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.041090086
+      value: 0.35417175
+      inSlope: -1.6759155
+      outSlope: -1.6759155
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.17556396
+      value: 0.14271545
+      inSlope: -0.27806383
+      outSlope: -0.27806383
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.33556396
+      value: 0.111465454
+      inSlope: -0.09769516
+      outSlope: -0.09769516
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.643891
+      value: 0.061462402
+      inSlope: -0.14649537
+      outSlope: -0.14649537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.51923084
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.004277952
+      inSlope: -0.010003988
+      outSlope: -0.010003988
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -483,10 +528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathCreatorList:
-  - {fileID: 5854893638432044124, guid: 9e830df27f2a0d24899ebf49cf688a27, type: 3}
-  - {fileID: 503521239246023397, guid: 355063f2147e60041ab7deb6b123ebbb, type: 3}
-  - {fileID: 5165187600884110002, guid: 22b4a4ec2d7f60941a9f11f869242692, type: 3}
-  - {fileID: 8403649649721919638, guid: 242dc8bc5caa81a469072d50e462b5ab, type: 3}
+  - {fileID: 7485638286878990234, guid: 9e830df27f2a0d24899ebf49cf688a27, type: 3}
+  - {fileID: 8885547106194252746, guid: 355063f2147e60041ab7deb6b123ebbb, type: 3}
+  - {fileID: 3555838022515755773, guid: 22b4a4ec2d7f60941a9f11f869242692, type: 3}
+  - {fileID: 6684017526829746221, guid: 242dc8bc5caa81a469072d50e462b5ab, type: 3}
   pathCreator: {fileID: 5854893638432044124, guid: 9e830df27f2a0d24899ebf49cf688a27,
     type: 3}
   endOfPathInstruction: 0
