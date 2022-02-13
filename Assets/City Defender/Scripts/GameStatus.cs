@@ -9,12 +9,12 @@ public class GameStatus : MonoBehaviour
     [Header("UI Text")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI gameOverText;
+    [SerializeField] TextMeshProUGUI dmgAmountText;
+    [SerializeField] TextMeshProUGUI shootSpeedText;
 
     [Header("Player Stats")]
     [SerializeField] float dmgAmount;
     [SerializeField] float shootSpeed;
-    [SerializeField] TextMeshProUGUI dmgAmountText;
-    [SerializeField] TextMeshProUGUI shootSpeedText;
 
     private Nexus nexus;
     private bool isGameStarted;
@@ -61,6 +61,7 @@ public class GameStatus : MonoBehaviour
         if (!IsGameOver())
             return;
 
+        FindObjectOfType<Aim>().gameObject.SetActive(false);
         gameOverText.text = "GAME OVER\n" + "YOUR SCORE\n" + score.ToString();
 
         sceneLoader.LoadStartingScene(5f);
@@ -78,7 +79,6 @@ public class GameStatus : MonoBehaviour
 
     public void StartGame()
     {
-        uiManager.HideStartUI();
         uiManager.ShowGameUI();
         isGameStarted = true;
         nexus = FindObjectOfType<Nexus>();

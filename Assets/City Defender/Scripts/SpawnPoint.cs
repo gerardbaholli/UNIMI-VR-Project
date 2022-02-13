@@ -5,16 +5,18 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
 
-    [SerializeField] Enemy enemy;
+    [SerializeField] Enemy[] enemyList;
     [SerializeField] float spawnCooldown;
 
     private GameStatus gameStatus;
     private Nexus nexus;
     private bool isCoroutineStarted = false;
+    private int numberOfEnemy;
 
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
+        numberOfEnemy = enemyList.Length;
     }
 
     private void FixedUpdate()
@@ -34,12 +36,17 @@ public class SpawnPoint : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        Instantiate(enemy, gameObject.transform.position,
+        if (IsTargetAlive())
+        {
+            Enemy enemy = enemyList[Random.Range(0, numberOfEnemy - 1)];
+            Debug.Log(enemy.name);
+            Instantiate(enemy, gameObject.transform.position,
             Quaternion.LookRotation(nexus.transform.position - gameObject.transform.position));
 
-        yield return new WaitForSeconds(spawnCooldown);
+            yield return new WaitForSeconds(spawnCooldown);
 
-        StartCoroutine(SpawnEnemies());
+            StartCoroutine(SpawnEnemies());
+        }
     }
 
     public bool IsTargetAlive()
@@ -59,7 +66,7 @@ public class SpawnPoint : MonoBehaviour
 
     public void ChangeSpawnCooldown(float incresingPerc)
     {
-        spawnCooldown = spawnCooldown * incresingPerc;
+        spawnCooldown *= incresingPerc;
     }
 
 }

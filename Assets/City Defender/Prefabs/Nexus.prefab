@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &1090229836
 GameObject:
@@ -90,7 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &1369648276
 GameObject:
@@ -136,7 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &1371756763
 GameObject:
@@ -182,7 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &1662913226
 GameObject:
@@ -228,7 +240,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &1702549411
 GameObject:
@@ -274,7 +289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &1927030016
 GameObject:
@@ -320,7 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &2055415325
 GameObject:
@@ -405,7 +426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7512887aed4d41d083cafcb7fa29db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
+  enemyList:
+  - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
+  - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
+  - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   spawnCooldown: 6
 --- !u!1 &5316233214109096786
 GameObject:
