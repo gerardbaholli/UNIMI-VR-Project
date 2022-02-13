@@ -169,6 +169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nexus
       objectReference: {fileID: 0}
+    - target: {fileID: 5316233214109096786, guid: 43128cdfcc8de664abbec46fb3e1e4f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5316233214109096797, guid: 43128cdfcc8de664abbec46fb3e1e4f9,
         type: 3}
       propertyPath: m_RootOrder
