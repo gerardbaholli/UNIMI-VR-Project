@@ -9,13 +9,13 @@ namespace PathCreation.Examples
         public PathCreator[] pathCreatorList;
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public float speed;
         float distanceTravelled;
 
+        private Enemy enemy;
 
         void Start() {
 
-            speed = GetComponent<Enemy>().GetSpeed();
+            enemy = FindObjectOfType<Enemy>();
 
             int numberOfPathCreator = pathCreatorList.Length;
             pathCreator = pathCreatorList[Random.Range(0, numberOfPathCreator - 1)];
@@ -31,7 +31,7 @@ namespace PathCreation.Examples
         {
             if (pathCreator != null)
             {
-                distanceTravelled += speed * Time.deltaTime;
+                distanceTravelled += enemy.GetSpeed() * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
             }

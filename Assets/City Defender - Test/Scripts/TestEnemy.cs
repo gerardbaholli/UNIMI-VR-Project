@@ -75,5 +75,10 @@ public class TestEnemy : MonoBehaviour
         return speed;
     }
 
+    public void SetSpeed(float value)
+    {
+        speed = value;
+    }
+
 
 }

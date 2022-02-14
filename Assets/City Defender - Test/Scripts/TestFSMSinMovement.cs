@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestFSMSinMovement : MonoBehaviour
 {
-
+    private TestEnemy enemy;
     private TestNexus target;
     private float speed;
 
@@ -15,8 +15,8 @@ public class TestFSMSinMovement : MonoBehaviour
 
     private void Start()
     {
+        enemy = GetComponent<TestEnemy>();
         target = FindObjectOfType<TestNexus>();
-        speed = GetComponent<TestEnemy>().GetSpeed();
 
 
         FSMState charge = new FSMState();
@@ -52,7 +52,7 @@ public class TestFSMSinMovement : MonoBehaviour
     /* ACTIONS */
     private void Charge()
     {
-        float step = speed * Time.deltaTime;
+        float step = enemy.GetSpeed() * Time.deltaTime;
 
         transform.LookAt(target.transform);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
@@ -61,7 +61,7 @@ public class TestFSMSinMovement : MonoBehaviour
 
     private void Attack()
     {
-        float step = speed * Time.deltaTime;
+        float step = enemy.GetSpeed() * Time.deltaTime;
 
         transform.LookAt(target.transform);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step * 2);

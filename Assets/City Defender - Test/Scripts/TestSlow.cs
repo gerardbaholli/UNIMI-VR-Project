@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowerEffect : Effect
+public class TestSlow : MonoBehaviour
 {
+
     [SerializeField] float slowerTime = 5f;
     [SerializeField] [Range(0.1f, 1f)] float slowerEffect = 0.5f;
 
+    private void FixedUpdate()
+    {
+        if (Input.GetMouseButtonDown(0))
+            TriggerEffect();
+    }
+
     public void TriggerEffect()
     {
-        Enemy[] enemyList = FindObjectsOfType<Enemy>();
+        TestEnemy[] enemyList = FindObjectsOfType<TestEnemy>();
 
-        foreach (Enemy enemy in enemyList)
+        foreach (TestEnemy enemy in enemyList)
         {
             enemy.SetSpeed(enemy.GetSpeed() * slowerEffect);
         }
@@ -19,14 +26,15 @@ public class SlowerEffect : Effect
         StartCoroutine(RestoreSpeed(enemyList));
     }
 
-    private IEnumerator RestoreSpeed(Enemy[] enemyList)
+    private IEnumerator RestoreSpeed(TestEnemy[] enemyList)
     {
         yield return new WaitForSeconds(slowerTime);
 
-        foreach (Enemy enemy in enemyList)
+        foreach (TestEnemy enemy in enemyList)
         {
             enemy.SetSpeed(enemy.GetSpeed() / slowerEffect);
         }
     }
+
 
 }

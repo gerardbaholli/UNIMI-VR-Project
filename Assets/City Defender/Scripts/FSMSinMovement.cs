@@ -5,8 +5,8 @@ using UnityEngine;
 public class FSMSinMovement : MonoBehaviour
 {
 
+    private Enemy enemy;
     private Nexus target;
-    private float speed;
 
     [SerializeField] float distanceToAttack = 10f;
 
@@ -15,8 +15,8 @@ public class FSMSinMovement : MonoBehaviour
 
     private void Start()
     {
+        enemy = GetComponent<Enemy>();
         target = FindObjectOfType<Nexus>();
-        speed = GetComponent<Enemy>().GetSpeed();
 
 
         FSMState charge = new FSMState();
@@ -53,7 +53,7 @@ public class FSMSinMovement : MonoBehaviour
     /* ACTIONS */
     private void Charge()
     {
-        float step = speed * Time.deltaTime;
+        float step = enemy.GetSpeed() * Time.deltaTime;
 
         transform.LookAt(target.transform);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
@@ -62,7 +62,7 @@ public class FSMSinMovement : MonoBehaviour
 
     private void Attack()
     {
-        float step = speed * Time.deltaTime;
+        float step = enemy.GetSpeed() * Time.deltaTime;
 
         transform.LookAt(target.transform);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step * 2);
