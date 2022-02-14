@@ -86,4 +86,9 @@ public class Enemy : MonoBehaviour
         return speed;
     }
 
+    public void SetSpeed(float value)
+    {
+        speed = value;
+    }
+
 }

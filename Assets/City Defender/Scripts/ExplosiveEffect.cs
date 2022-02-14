@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grenade : MonoBehaviour
+public class ExplosiveEffect : Effect
 {
-
     public void TriggerEffect()
     {
         Enemy[] enemyList = FindObjectsOfType<Enemy>();

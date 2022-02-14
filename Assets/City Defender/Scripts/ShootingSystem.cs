@@ -82,19 +82,20 @@ public class ShootingSystem : MonoBehaviour
                 {
                     CheckDropHit(hit);
                 }
-                else if (hit.transform.tag == "Grenade")
+                else if (hit.transform.tag == "Power")
                 {
-                    CheckGrenadeHit(hit);
+                    CheckPowerHit(hit);
                 }
             }
             UpdateAmmoCapability();
         }
     }
 
-    private void CheckGrenadeHit(RaycastHit hit)
+    private void CheckPowerHit(RaycastHit hit)
     {
-        Grenade drop = hit.collider.GetComponent<Grenade>();
-        drop.TriggerEffect();
+        Effect drop = hit.collider.GetComponent<Effect>();
+        drop.GetComponent<SlowerEffect>()?.TriggerEffect();
+        drop.GetComponent<ExplosiveEffect>()?.TriggerEffect();
         Destroy(drop.gameObject);
     }
 

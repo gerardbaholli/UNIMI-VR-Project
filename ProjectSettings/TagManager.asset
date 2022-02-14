@@ -8,7 +8,7 @@ TagManager:
   - Enemy
   - Weapon
   - FxTemporaire
-  - Grenade
+  - Power
   layers:
   - Default
   - TransparentFX
