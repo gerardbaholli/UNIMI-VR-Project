@@ -5,6 +5,11 @@ using UnityEngine;
 public class Effect : Power
 {
 
+    [SerializeField] GameObject destroyEffect;
 
+    public GameObject GetDestroyEffect()
+    {
+        return destroyEffect;
+    }
 
 }

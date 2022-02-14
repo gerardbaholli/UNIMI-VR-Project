@@ -29,7 +29,7 @@ public class TestSlow : MonoBehaviour
     private IEnumerator RestoreSpeed(TestEnemy[] enemyList)
     {
         yield return new WaitForSeconds(slowerTime);
-
+        
         foreach (TestEnemy enemy in enemyList)
         {
             enemy.SetSpeed(enemy.GetSpeed() / slowerEffect);

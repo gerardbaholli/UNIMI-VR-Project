@@ -16,9 +16,9 @@ namespace PathCreation.Examples
         void Start() {
 
             enemy = FindObjectOfType<Enemy>();
-
+            pathCreatorList = FindObjectsOfType<PathCreator>();
             int numberOfPathCreator = pathCreatorList.Length;
-            pathCreator = pathCreatorList[Random.Range(0, numberOfPathCreator - 1)];
+            pathCreator = pathCreatorList[Random.Range(0, numberOfPathCreator)];
 
             if (pathCreator != null)
             {

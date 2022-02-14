@@ -4761,7 +4761,7 @@ GameObject:
   - component: {fileID: 19900004}
   - component: {fileID: 11400000}
   m_Layer: 0
-  m_Name: WFXMR_Explosion
+  m_Name: FXPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

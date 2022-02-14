@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 3238682860968542659}
   - component: {fileID: 2300955779796921994}
   - component: {fileID: 4017311706798207740}
-  - component: {fileID: 543312877715083974}
+  - component: {fileID: -1378293037568392673}
   m_Layer: 0
   m_Name: Test Enemy
   m_TagString: Enemy
@@ -449,7 +449,7 @@ MonoBehaviour:
   destroyEffect: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   destroySound: {fileID: 8300000, guid: 50d4b6c31cf935c408b1bc76fb2a34ae, type: 3}
   healthbar: {fileID: 3437466904668216295}
---- !u!114 &543312877715083974
+--- !u!114 &-1378293037568392673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,11 +458,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4631737928966635692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbe84cceb1b8c54693b0d3118042909, type: 3}
+  m_Script: {fileID: 11500000, guid: ee995f9eae5ef6e43a4669399398d4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToAttack: 7.5
   fsmUpdateTimer: 0.01
+  distanceToAttack: 20
 --- !u!1001 &6602323203468983893
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -39,9 +39,9 @@ public class Spawner : MonoBehaviour
     {
 
         int[] side = { -1, 1 };
-        float xPos = Random.Range(6, 13) * side[Random.Range(0, 2)];
-        float yPos = Random.Range(1, 10);
-        float zPos = Random.Range(6, 13) * side[Random.Range(0, 2)];
+        float xPos = Random.Range(7, 13) * side[Random.Range(0, 2)];
+        float yPos = Random.Range(1, 15);
+        float zPos = Random.Range(7, 13) * side[Random.Range(0, 2)];
         Vector3 spawnPosition = new(xPos, yPos, zPos);
         Debug.Log(spawnPosition);
 
