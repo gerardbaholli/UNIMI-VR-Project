@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Enemy[] enemyList;
-    [SerializeField] float minSpawnCooldown = 0.35f;
+    [SerializeField] float minSpawnCooldown = 1f;
 
     [Header("Log Spawn Function")]
     [SerializeField] float logBase = 0.5f;

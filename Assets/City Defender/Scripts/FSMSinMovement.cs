@@ -45,7 +45,6 @@ public class FSMSinMovement : MonoBehaviour
     /* CONDITIONS */
     public bool Distance()
     {
-        Debug.Log((target.transform.position - transform.position).magnitude < distanceToAttack);
         return (target.transform.position - transform.position).magnitude < distanceToAttack;
     }
 

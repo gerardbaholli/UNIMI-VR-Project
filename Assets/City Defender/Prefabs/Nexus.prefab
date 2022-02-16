@@ -152,7 +152,7 @@ MonoBehaviour:
   - {fileID: -7769271775319812194, guid: 1dd6808347e4b4b77b78e09f66685ed2, type: 3}
   - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
   - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
-  minSpawnCooldown: 0.5
+  minSpawnCooldown: 1
   logBase: 0.5
   logPlus: 10
 --- !u!1 &8604102506115857282
