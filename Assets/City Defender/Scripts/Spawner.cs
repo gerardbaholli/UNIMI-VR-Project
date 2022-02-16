@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
     {
         gameStatus = FindObjectOfType<GameStatus>();
         numberOfEnemy = enemyList.Length;
-        //spawnCooldown = startingSpawnCooldown;
+        spawnCooldown = minSpawnCooldown + 10f;
     }
 
     private void FixedUpdate()
