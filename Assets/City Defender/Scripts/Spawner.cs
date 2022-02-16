@@ -5,9 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Enemy[] enemyList;
-    [SerializeField] float startingSpawnCooldown = 5f;
-    [SerializeField] [Range(0.001f, 0.2f)] float decreasingAmount = 0.05f;
-    [SerializeField] float minSpawnCooldown = 0.3f;
+    [SerializeField] float minSpawnCooldown = 0.35f;
 
     [Header("Log Spawn Function")]
     [SerializeField] float logBase = 0.5f;
@@ -23,7 +21,7 @@ public class Spawner : MonoBehaviour
     {
         gameStatus = FindObjectOfType<GameStatus>();
         numberOfEnemy = enemyList.Length;
-        spawnCooldown = startingSpawnCooldown;
+        //spawnCooldown = startingSpawnCooldown;
     }
 
     private void FixedUpdate()

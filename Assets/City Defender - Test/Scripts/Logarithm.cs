@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Logarithm : MonoBehaviour
 {
-    [SerializeField] float startingSpawnCooldown = 5f;
-    [SerializeField] [Range(0.001f, 0.2f)] float decreasingAmount = 0.05f;
     [SerializeField] float minSpawnCooldown = 0.3f;
 
 
