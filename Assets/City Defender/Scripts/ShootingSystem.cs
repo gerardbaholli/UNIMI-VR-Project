@@ -80,7 +80,7 @@ public class ShootingSystem : MonoBehaviour
                 }
                 else if (hit.transform.tag == "Weapon")
                 {
-                    CheckDropHit(hit);
+                    CheckWeaponHit(hit);
                 }
                 else if (hit.transform.tag == "Power")
                 {
@@ -100,15 +100,15 @@ public class ShootingSystem : MonoBehaviour
         Destroy(drop.gameObject);
     }
 
-    private void CheckDropHit(RaycastHit hit)
+    private void CheckWeaponHit(RaycastHit hit)
     {
         Weapon drop = hit.collider.GetComponent<Weapon>();
         if (drop != null)
         {
-            nextFire = Time.time;
             currentWeapon = weaponList[drop.GetWeaponID()];
             ammoCounter = currentWeapon.GetAmmoCapacity();
             UpdateAmmoText();
+            nextFire = Time.time;
             Destroy(drop.gameObject);
         }
     }
