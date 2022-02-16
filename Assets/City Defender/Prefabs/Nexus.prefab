@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5316233214109096797
 Transform:
   m_ObjectHideFlags: 0
@@ -154,8 +154,9 @@ MonoBehaviour:
   - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   startingSpawnCooldown: 4
   decreasingAmount: 0.05
-  minSpawnCooldown: 0.3
-  spawnCooldown: 0
+  minSpawnCooldown: 0.5
+  logBase: 0.5
+  logPlus: 10
 --- !u!1 &8604102506115857282
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,11 +44,11 @@ public class TestSpawner : MonoBehaviour
         float yPos = Random.Range(1, 10);
         float zPos = Random.Range(6, 13) * side[Random.Range(0, 2)];
         Vector3 spawnPosition = new(xPos, yPos, zPos);
-        Debug.Log(spawnPosition);
+        //Debug.Log(spawnPosition);
 
 
         TestEnemy enemy = enemyList[Random.Range(0, numberOfEnemy - 1)];
-        Debug.Log(enemy.name);
+        //Debug.Log(enemy.name);
 
         Instantiate(enemy, gameObject.transform.position + spawnPosition,
         Quaternion.LookRotation(nexus.transform.position - spawnPosition));
@@ -56,7 +56,7 @@ public class TestSpawner : MonoBehaviour
 
         //DecreaseSpawnCooldown(gameStatus.GetScore() / decreasingAmount);
         DecreaseSpawnCooldown(decreasingAmount);
-        Debug.Log("Cooldown: " + spawnCooldown);
+        //Debug.Log("Cooldown: " + spawnCooldown);
 
         yield return new WaitForSeconds(spawnCooldown);
         StartCoroutine(SpawnEnemies());

@@ -169,11 +169,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nexus
       objectReference: {fileID: 0}
-    - target: {fileID: 5316233214109096786, guid: 43128cdfcc8de664abbec46fb3e1e4f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5316233214109096797, guid: 43128cdfcc8de664abbec46fb3e1e4f9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2605,7 +2600,8 @@ MonoBehaviour:
   startingSpawnCooldown: 0
   decreasingAmount: 1000
   minSpawnCooldown: 0.3
-  spawnCooldown: 0
+  logBase: 0.5
+  logPlus: 10
 --- !u!1 &922705607
 GameObject:
   m_ObjectHideFlags: 0
