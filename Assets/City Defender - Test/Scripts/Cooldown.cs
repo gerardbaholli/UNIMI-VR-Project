@@ -11,11 +11,6 @@ public class Cooldown : MonoBehaviour
 
     private float nextFire = 0f;
 
-    private void Start()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         Shoot();
@@ -30,8 +25,6 @@ public class Cooldown : MonoBehaviour
             if (Time.time > nextFire)
             {
                 nextFire = Time.time + cooldownValue;
-                Debug.Log("Shoot!");
-                //StartCoroutine(LaunchCooldown());
             }
         }
 
@@ -40,20 +33,12 @@ public class Cooldown : MonoBehaviour
 
     private void UpdateCircle()
     {
-        //Debug.Log((nextFire - Time.time) / cooldownValue);
         cooldownImage.fillAmount = 1 - (nextFire - Time.time) / cooldownValue;
-        Debug.Log(cooldownImage.color);
 
         float red = (nextFire - Time.time) / cooldownValue;
         float green = 1 - (nextFire - Time.time) / cooldownValue;
-        float blue = 0.3f;
+        float blue = 0.35f;
         cooldownImage.color = new Color(red, green, blue);
-    }
-
-    private IEnumerator LaunchCooldown()
-    {
-
-        yield return new WaitForSeconds(cooldownValue);
     }
 
 }
