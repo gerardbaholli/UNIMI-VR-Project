@@ -22,6 +22,7 @@ public class ShootingSystem : MonoBehaviour
 
     // CACHE
     private Weapon standardWeapon;
+    private Cooldown cooldownUI;
     private float nextFire;
     private Collider[] hitColliders;
 
@@ -36,6 +37,7 @@ public class ShootingSystem : MonoBehaviour
     {
         gameStatus = FindObjectOfType<GameStatus>();
         audioSource = GetComponent<AudioSource>();
+        cooldownUI = FindObjectOfType<Cooldown>();
         standardWeapon = weaponList[0];
         currentWeapon = weaponList[0];
         ammoCounter = currentWeapon.GetAmmoCapacity();
@@ -66,8 +68,8 @@ public class ShootingSystem : MonoBehaviour
         if (Time.time > nextFire)
         {
             nextFire = Time.time + currentWeapon.GetFireRate();
-
             audioSource.PlayOneShot(currentWeapon.GetShootSound());
+            cooldownUI.StartCooldown();
 
             RaycastHit hit;
 
@@ -108,6 +110,7 @@ public class ShootingSystem : MonoBehaviour
             currentWeapon = weaponList[drop.GetWeaponID()];
             ammoCounter = currentWeapon.GetAmmoCapacity();
             UpdateAmmoText();
+            cooldownUI.SetCooldown(currentWeapon.GetFireRate());
             nextFire = Time.time;
             Destroy(drop.gameObject);
         }
@@ -143,9 +146,10 @@ public class ShootingSystem : MonoBehaviour
             {
                 ammoCounter--;
 
-                if (ammoCounter == 0)
+                if (ammoCounter <= 0)
                 {
                     currentWeapon = standardWeapon;
+                    cooldownUI.SetCooldown(currentWeapon.GetFireRate());
                     ammoCounter = currentWeapon.GetAmmoCapacity();
                 }
             }
