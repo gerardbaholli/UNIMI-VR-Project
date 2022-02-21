@@ -5,71 +5,85 @@ using UnityEngine;
 public class RewardSystem : MonoBehaviour
 {
 
-	[SerializeField] int scoreRecord = 5;
-	[SerializeField] string kill100 = "yes";
-	[SerializeField] string kill200 = "no";
-	[SerializeField] string kill500 = "no";
-	[SerializeField] string kill1000 = "no";
+    [SerializeField] int scoreRecord = 0;
+    [SerializeField] string kill100 = "no";
+    [SerializeField] string kill200 = "no";
+    [SerializeField] string kill500 = "no";
+    [SerializeField] string kill1000 = "no";
+
+    [SerializeField] bool onStartResetAllData = false;
 
     private void Start()
     {
-		SetKills(1002);
-		SaveGame();
-		LoadGame();
+        DeleteAllData(onStartResetAllData);
+
+        LoadGame();
+        Debug.Log("Your record is " + scoreRecord);
     }
 
-    public void SaveGame()
-	{
-		PlayerPrefs.SetInt("ScoreRecord", scoreRecord);
-		PlayerPrefs.SetString("Kill100", kill100);
-		PlayerPrefs.SetString("Kill200", kill200);
-		PlayerPrefs.SetString("Kill500", kill500);
-		PlayerPrefs.SetString("Kill1000", kill1000);
-		PlayerPrefs.Save();
-		Debug.Log("Game data saved!");
-	}
-
-	public void LoadGame()
-	{
-		if (PlayerPrefs.HasKey("SavedInteger"))
-		{
-			var tempScoreRecord = PlayerPrefs.GetInt("ScoreRecord");
-			var tempKill100 = PlayerPrefs.GetString("Kill100");
-			var tempKill200 = PlayerPrefs.GetString("Kill200");
-			var tempKill500 = PlayerPrefs.GetString("Kill500");
-			var tempKill1000 = PlayerPrefs.GetString("Kill1000");
-			Debug.Log("Game data loaded!");
-			Debug.Log("ScoreRecord: " + tempScoreRecord);
-			Debug.Log("Kill100: " + tempKill100);
-			Debug.Log("Kill200: " + tempKill200);
-			Debug.Log("Kill500: " + tempKill500);
-			Debug.Log("Kill1000: " + tempKill1000);
-		}
-		else
-			Debug.LogError("There is no save data!");
-	}
-
-	public void SetKills(int value)
+    private void SaveGame()
     {
-		switch (value)
-		{
-			case >= 1000:
-				kill1000 = "yes";
-				break;
-			case >= 500:
-				kill500 = "yes";
-				break;
-			case >= 200:
-				kill200 = "yes";
-				break;
-			case >= 100:
-				kill100 = "yes";
-				break;
-			default:
-				break;
-		}
+        PlayerPrefs.SetInt("ScoreRecord", scoreRecord);
+        PlayerPrefs.SetString("Kill100", kill100);
+        PlayerPrefs.SetString("Kill200", kill200);
+        PlayerPrefs.SetString("Kill500", kill500);
+        PlayerPrefs.SetString("Kill1000", kill1000);
+        PlayerPrefs.Save();
+        Debug.Log("Game data saved!");
+    }
 
-		SaveGame();
-	}
+    public void LoadGame()
+    {
+        scoreRecord = PlayerPrefs.GetInt("ScoreRecord");
+        kill100 = PlayerPrefs.GetString("Kill100");
+        kill200 = PlayerPrefs.GetString("Kill200");
+        kill500 = PlayerPrefs.GetString("Kill500");
+        kill1000 = PlayerPrefs.GetString("Kill1000");
+        Debug.Log("ScoreRecord: " + scoreRecord);
+        Debug.Log("Kill100: " + kill100);
+        Debug.Log("Kill200: " + kill200);
+        Debug.Log("Kill500: " + kill500);
+        Debug.Log("Kill1000: " + kill1000);
+        Debug.Log("Game data loaded!");
+    }
+
+    public void SetKills(int kills)
+    {
+        if (kills >= 100)
+            kill100 = "yes";
+        else
+            kill100 = "no";
+
+        if (kills >= 200)
+            kill200 = "yes";
+        else
+            kill200 = "no";
+
+        if (kills >= 500)
+            kill500 = "yes";
+        else
+            kill500 = "no";
+
+        if (kills >= 1000)
+            kill1000 = "yes";
+        else
+            kill1000 = "no";
+
+        SaveGame();
+    }
+
+    public void SetScore(int score)
+    {
+        if (score > scoreRecord)
+            scoreRecord = score;
+
+        SaveGame();
+    }
+
+    public void DeleteAllData(bool flag)
+    {
+        if (flag)
+            PlayerPrefs.DeleteAll();
+    }
 
 }
