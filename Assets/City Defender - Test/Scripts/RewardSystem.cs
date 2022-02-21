@@ -16,9 +16,7 @@ public class RewardSystem : MonoBehaviour
     private void Start()
     {
         DeleteAllData(onStartResetAllData);
-
         LoadGame();
-        Debug.Log("Your record is " + scoreRecord);
     }
 
     private void SaveGame()
@@ -29,7 +27,7 @@ public class RewardSystem : MonoBehaviour
         PlayerPrefs.SetString("Kill500", kill500);
         PlayerPrefs.SetString("Kill1000", kill1000);
         PlayerPrefs.Save();
-        Debug.Log("Game data saved!");
+        //Debug.Log("Game data saved!");
     }
 
     public void LoadGame()
@@ -39,12 +37,12 @@ public class RewardSystem : MonoBehaviour
         kill200 = PlayerPrefs.GetString("Kill200");
         kill500 = PlayerPrefs.GetString("Kill500");
         kill1000 = PlayerPrefs.GetString("Kill1000");
-        Debug.Log("ScoreRecord: " + scoreRecord);
-        Debug.Log("Kill100: " + kill100);
-        Debug.Log("Kill200: " + kill200);
-        Debug.Log("Kill500: " + kill500);
-        Debug.Log("Kill1000: " + kill1000);
-        Debug.Log("Game data loaded!");
+        //Debug.Log("ScoreRecord: " + scoreRecord);
+        //Debug.Log("Kill100: " + kill100);
+        //Debug.Log("Kill200: " + kill200);
+        //Debug.Log("Kill500: " + kill500);
+        //Debug.Log("Kill1000: " + kill1000);
+        //Debug.Log("Game data loaded!");
     }
 
     public void SetKills(int kills)
