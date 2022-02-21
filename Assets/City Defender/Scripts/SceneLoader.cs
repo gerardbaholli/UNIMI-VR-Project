@@ -4,6 +4,7 @@ using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] float delayOnSceneLoad = 0.3f;
 
     private GameStatus gameStatus;
     private int numberOfScenes;
@@ -22,7 +23,9 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadStartingScene(float delayOnSceneLoad)
     {
-        Destroy(gameStatus);
+        if (gameStatus != null)
+            Destroy(gameStatus);
+
         StartCoroutine(WaitForSceneLoad(0, delayOnSceneLoad));
     }
 
@@ -42,8 +45,19 @@ public class SceneLoader : MonoBehaviour
 
     public void ReloadScene(float delayOnSceneLoad)
     {
-        Destroy(gameStatus);
+        if (gameStatus != null)
+            Destroy(gameStatus);
+
         StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex, delayOnSceneLoad));
     }
+
+    public void LoadSceneIndex(int sceneIndex)
+    {
+        if (gameStatus != null)
+            Destroy(gameStatus);
+
+        StartCoroutine(WaitForSceneLoad(sceneIndex, delayOnSceneLoad));
+    }
+
 
 }

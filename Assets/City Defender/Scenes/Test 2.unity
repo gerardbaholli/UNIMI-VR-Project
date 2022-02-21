@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kills: 1203
-  score: 400500
+  score: 400501
 --- !u!1 &1249808325
 GameObject:
   m_ObjectHideFlags: 0
