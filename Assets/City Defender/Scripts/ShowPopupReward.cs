@@ -16,6 +16,8 @@ public class ShowPopupReward : MonoBehaviour
     {
         gameStatus = FindObjectOfType<GameStatus>();
         rewardSystem = FindObjectOfType<RewardSystem>();
+
+        rewardTMP.text = "";
     }
 
     private void LateUpdate()
