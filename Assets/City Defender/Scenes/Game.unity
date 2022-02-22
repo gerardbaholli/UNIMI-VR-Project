@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardTMP: {fileID: 251870671}
+  rewardSound: {fileID: 8300000, guid: 05199b2489a2297489457f741ae796ca, type: 3}
+  rewardDelay: 5
 --- !u!222 &11856394
 CanvasRenderer:
   m_ObjectHideFlags: 0

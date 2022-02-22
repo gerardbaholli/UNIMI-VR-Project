@@ -7,15 +7,18 @@ using TMPro;
 public class ShowPopupReward : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI rewardTMP;
-    [SerializeField] float rewardDelay = 0.3f;
+    [SerializeField] AudioClip rewardSound;
+    [SerializeField] float rewardDelay = 5f;
 
     private GameStatus gameStatus;
     private RewardSystem rewardSystem;
+    private AudioSource audioSource;
 
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
         rewardSystem = FindObjectOfType<RewardSystem>();
+        audioSource = FindObjectOfType<AudioSource>();
 
         rewardTMP.text = "";
     }
@@ -33,6 +36,7 @@ public class ShowPopupReward : MonoBehaviour
     private IEnumerator LoadSpriteReward(string reward, float delay)
     {
         rewardTMP.text = reward;
+        audioSource.PlayOneShot(rewardSound);
         yield return new WaitForSeconds(delay);
         rewardTMP.text = "";
     }
