@@ -6,6 +6,7 @@ public class RewardSystem : MonoBehaviour
 {
 
     [SerializeField] int scoreRecord = 0;
+    [SerializeField] string kill20 = "no";
     [SerializeField] string kill100 = "no";
     [SerializeField] string kill200 = "no";
     [SerializeField] string kill500 = "no";
@@ -22,6 +23,7 @@ public class RewardSystem : MonoBehaviour
     private void SaveGame()
     {
         PlayerPrefs.SetInt("ScoreRecord", scoreRecord);
+        PlayerPrefs.SetString("Kill20", kill20);
         PlayerPrefs.SetString("Kill100", kill100);
         PlayerPrefs.SetString("Kill200", kill200);
         PlayerPrefs.SetString("Kill500", kill500);
@@ -33,6 +35,7 @@ public class RewardSystem : MonoBehaviour
     public void LoadGame()
     {
         scoreRecord = PlayerPrefs.GetInt("ScoreRecord");
+        kill20 = PlayerPrefs.GetString("Kill20");
         kill100 = PlayerPrefs.GetString("Kill100");
         kill200 = PlayerPrefs.GetString("Kill200");
         kill500 = PlayerPrefs.GetString("Kill500");
@@ -47,6 +50,11 @@ public class RewardSystem : MonoBehaviour
 
     public void SetKills(int kills)
     {
+        if (kills >= 20)
+            kill20 = "yes";
+        else
+            kill20 = "no";
+
         if (kills >= 100)
             kill100 = "yes";
         else
@@ -87,6 +95,16 @@ public class RewardSystem : MonoBehaviour
     public int GetScoreRecord()
     {
         return scoreRecord;
+    }
+
+    public string GetKill20()
+    {
+        if (kill20 == "no")
+            return "";
+        else if (kill20 == "yes")
+            return "completed";
+
+        return kill20;
     }
 
     public string GetKill100()

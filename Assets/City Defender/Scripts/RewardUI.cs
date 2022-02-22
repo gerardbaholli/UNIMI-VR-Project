@@ -7,6 +7,7 @@ public class RewardUI : MonoBehaviour
 {
 
     [SerializeField] TextMeshProUGUI scoreTMP;
+    [SerializeField] TextMeshProUGUI kill20TMP;
     [SerializeField] TextMeshProUGUI kill100TMP;
     [SerializeField] TextMeshProUGUI kill200TMP;
     [SerializeField] TextMeshProUGUI kill500TMP;
@@ -18,6 +19,7 @@ public class RewardUI : MonoBehaviour
     {
         rewardSystem = FindObjectOfType<RewardSystem>();
         scoreTMP.text = rewardSystem.GetScoreRecord().ToString();
+        kill20TMP.text = rewardSystem.GetKill20();
         kill100TMP.text = rewardSystem.GetKill100();
         kill200TMP.text = rewardSystem.GetKill200();
         kill500TMP.text = rewardSystem.GetKill500();
