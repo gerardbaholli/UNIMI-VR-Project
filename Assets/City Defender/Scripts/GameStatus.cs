@@ -137,4 +137,10 @@ public class GameStatus : MonoBehaviour
         killCounter++;
     }
 
+    public int GetKillCount()
+    {
+        return killCounter;
+    }
+
+
 }
