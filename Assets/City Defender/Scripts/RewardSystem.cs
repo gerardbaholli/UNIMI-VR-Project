@@ -20,7 +20,7 @@ public class RewardSystem : MonoBehaviour
         LoadGame();
     }
 
-    private void SaveGame()
+    public void SaveGame()
     {
         PlayerPrefs.SetInt("ScoreRecord", scoreRecord);
         PlayerPrefs.SetString("Kill20", kill20);
