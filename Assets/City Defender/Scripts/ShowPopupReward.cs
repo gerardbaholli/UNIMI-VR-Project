@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class ShowPopupReward : MonoBehaviour
 {
-    [SerializeField] Transform rewardPosition;
-    [SerializeField] Sprite kill20;
+    [SerializeField] TextMeshProUGUI rewardTMP;
+    [SerializeField] float rewardDelay = 0.3f;
+
     private GameStatus gameStatus;
     private RewardSystem rewardSystem;
 
@@ -18,19 +20,19 @@ public class ShowPopupReward : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (gameStatus.GetKillCount() == 20)
+        if (gameStatus.GetKillCount() >= 20 && rewardSystem.GetKill20() == "")
         {
             rewardSystem.SetKills(gameStatus.GetKillCount());
             rewardSystem.SaveGame();
-            StartCoroutine(LoadSpriteReward(kill20, 3f));
+            StartCoroutine(LoadSpriteReward("Kill 20\nenemies", rewardDelay));
         }
     }
 
-    private IEnumerator LoadSpriteReward(Sprite rewardSprite, float delay)
+    private IEnumerator LoadSpriteReward(string reward, float delay)
     {
-        var temp = Instantiate(rewardSprite, rewardPosition.position, Quaternion.identity);
+        rewardTMP.text = reward;
         yield return new WaitForSeconds(delay);
-        Destroy(temp);
+        rewardTMP.text = "";
     }
 
 
