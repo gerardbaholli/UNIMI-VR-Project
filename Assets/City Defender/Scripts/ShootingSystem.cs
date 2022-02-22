@@ -136,6 +136,7 @@ public class ShootingSystem : MonoBehaviour
                 }
             }
         }
+
     }
 
     private void UpdateAmmoCapability()

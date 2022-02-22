@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Image healthbar;
 
     private GameStatus gameStatus;
+    private RewardSystem rewardSystem;
     private Nexus target;
     private Drop dropManager;
     float currentHealth;
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
+        rewardSystem = FindObjectOfType<RewardSystem>();
         target = FindObjectOfType<Nexus>();
         currentHealth = originalHealth;
 
@@ -64,6 +66,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             gameStatus.AddPointsToScore(pointsForKilling);
+            gameStatus.CountKill();
             RandomDrop();
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);

@@ -331,7 +331,7 @@ MonoBehaviour:
   pointsForKilling: 1
   impactOnNexusEffect: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 4420287016479255772}
 --- !u!114 &-3635186395645649137
 MonoBehaviour:
   m_ObjectHideFlags: 0

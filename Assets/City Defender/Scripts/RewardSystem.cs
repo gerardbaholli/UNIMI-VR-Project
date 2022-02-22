@@ -13,7 +13,7 @@ public class RewardSystem : MonoBehaviour
 
     [SerializeField] bool onStartResetAllData = false;
 
-    private void Start()
+    private void Awake()
     {
         DeleteAllData(onStartResetAllData);
         LoadGame();
@@ -82,6 +82,51 @@ public class RewardSystem : MonoBehaviour
     {
         if (flag)
             PlayerPrefs.DeleteAll();
+    }
+
+    public int GetScoreRecord()
+    {
+        return scoreRecord;
+    }
+
+    public string GetKill100()
+    {
+        if (kill100 == "no")
+            return "";
+        else if (kill100 == "yes")
+            return "completed";
+
+        return kill100;
+    }
+
+    public string GetKill200()
+    {
+        if (kill200 == "no")
+            return "";
+        else if (kill200 == "yes")
+            return "completed";
+
+        return kill200;
+    }
+
+    public string GetKill500()
+    {
+        if (kill500 == "no")
+            return "";
+        else if (kill500 == "yes")
+            return "completed";
+
+        return kill500;
+    }
+
+    public string GetKill1000()
+    {
+        if (kill1000 == "no")
+            return "";
+        else if (kill1000 == "yes")
+            return "completed";
+
+        return kill1000;
     }
 
 }

@@ -16,11 +16,16 @@ public class GameStatus : MonoBehaviour
     [SerializeField] float dmgAmount;
     [SerializeField] float shootSpeed;
 
+    // CACHE
+    private UIManager uiManager;
+    private SceneLoader sceneLoader;
+    private RewardSystem rewardSystem;
+
+    // VARIABLES
     private Nexus nexus;
     private bool isGameStarted;
     private int score;
-    private UIManager uiManager;
-    private SceneLoader sceneLoader;
+    private int killCounter;
 
     private void Awake()
     {
@@ -43,8 +48,10 @@ public class GameStatus : MonoBehaviour
     {
         uiManager = FindObjectOfType<UIManager>();
         sceneLoader = FindObjectOfType<SceneLoader>();
+        rewardSystem = FindObjectOfType<RewardSystem>();
         isGameStarted = false;
         score = 0;
+        killCounter = 0;
         dmgAmount = 1f;
         shootSpeed = 1f;
         dmgAmountText.text = dmgAmount.ToString("F2");
@@ -63,7 +70,8 @@ public class GameStatus : MonoBehaviour
 
         FindObjectOfType<Aim>().gameObject.SetActive(false);
         gameOverText.text = "GAME OVER\n" + "YOUR SCORE\n" + score.ToString();
-
+        rewardSystem.SetScore(score);
+        rewardSystem.SetKills(killCounter);
         sceneLoader.LoadStartingScene(5f);
     }
 
@@ -122,6 +130,11 @@ public class GameStatus : MonoBehaviour
     public float GetShootSpeed()
     {
         return shootSpeed;
+    }
+
+    public void CountKill()
+    {
+        killCounter++;
     }
 
 }
