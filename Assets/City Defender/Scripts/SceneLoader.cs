@@ -5,20 +5,13 @@ using System.Collections;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] float delayOnSceneLoad = 0.3f;
+    [SerializeField] AudioClip clickSound;
 
     private GameStatus gameStatus;
-    private int numberOfScenes;
 
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
-        numberOfScenes = SceneManager.sceneCountInBuildSettings;
-    }
-
-    private IEnumerator WaitForSceneLoad(int sceneIndex, float delayOnSceneLoad)
-    {
-        yield return new WaitForSeconds(delayOnSceneLoad);
-        SceneManager.LoadScene(sceneIndex);
     }
 
     public void LoadStartingScene(float delayOnSceneLoad)
@@ -29,20 +22,6 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(WaitForSceneLoad(0, delayOnSceneLoad));
     }
 
-    public void LoadNextScene(float delayOnSceneLoad)
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        if (currentSceneIndex + 1 < numberOfScenes)
-        {
-            StartCoroutine(WaitForSceneLoad(currentSceneIndex + 1, delayOnSceneLoad));
-        }
-        else
-        {
-            LoadStartingScene(delayOnSceneLoad + 1f);
-        }
-    }
-
     public void ReloadScene(float delayOnSceneLoad)
     {
         if (gameStatus != null)
@@ -51,13 +30,32 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex, delayOnSceneLoad));
     }
 
-    public void LoadSceneIndex(int sceneIndex)
+    public void LoadGameScene(float delayOnSceneLoad)
     {
-        if (gameStatus != null)
-            Destroy(gameStatus);
+        Music music = FindObjectOfType<Music>();
+        if (music != null)
+            Destroy(music);
 
-        StartCoroutine(WaitForSceneLoad(sceneIndex, delayOnSceneLoad));
+        StartCoroutine(WaitForSceneLoad(1, delayOnSceneLoad));
     }
 
+    private IEnumerator WaitForSceneLoad(int sceneIndex, float delayOnSceneLoad)
+    {
+        AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
+        yield return new WaitForSeconds(delayOnSceneLoad);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine(LoadSceneWithDelay(sceneName));
+    }
+
+    private IEnumerator LoadSceneWithDelay(string sceneName)
+    {
+        AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
+        yield return new WaitForSeconds(delayOnSceneLoad);
+        SceneManager.LoadScene(sceneName);
+    }
 
 }
