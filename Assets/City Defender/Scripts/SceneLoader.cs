@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadStartingScene(float delayOnSceneLoad)
     {
         if (gameStatus != null)
-            Destroy(gameStatus);
+            Destroy(gameStatus.gameObject);
 
         StartCoroutine(WaitForSceneLoad(1));
     }
@@ -27,7 +27,7 @@ public class SceneLoader : MonoBehaviour
     public void ReloadScene(float delayOnSceneLoad)
     {
         if (gameStatus != null)
-            Destroy(gameStatus);
+            Destroy(gameStatus.gameObject);
 
         StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex));
     }
@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadGameScene(float delayOnSceneLoad)
     {
         if (music != null)
-            Destroy(music);
+            Destroy(music.gameObject);
 
         StartCoroutine(WaitForSceneLoad(2));
     }

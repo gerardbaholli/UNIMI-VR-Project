@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthEffect : Effect
+public class HealEffect : Effect
 {
+    [SerializeField] [Range(0f, 1f)] float healPercentage = 0.2f;
+
     public void TriggerEffect()
     {
         Nexus nexus = FindObjectOfType<Nexus>();
 
-        var newLife = nexus.GetCurrentLife() * 1.2f;
+        float newLife = nexus.GetCurrentLife() + (nexus.GetCurrentLife() * healPercentage);
 
         if (newLife <= nexus.GetOriginalLife())
             nexus.SetLife(newLife);

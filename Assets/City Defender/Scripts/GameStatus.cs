@@ -9,8 +9,6 @@ public class GameStatus : MonoBehaviour
     [Header("UI Text")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI gameOverText;
-    [SerializeField] TextMeshProUGUI dmgAmountText;
-    [SerializeField] TextMeshProUGUI shootSpeedText;
 
     [Header("Player Stats")]
     [SerializeField] float dmgAmount;
@@ -57,8 +55,6 @@ public class GameStatus : MonoBehaviour
         killCounter = 0;
         dmgAmount = 1f;
         shootSpeed = 1f;
-        dmgAmountText.text = dmgAmount.ToString("F2");
-        shootSpeedText.text = shootSpeed.ToString("F2");
     }
 
     private void FixedUpdate()
@@ -87,7 +83,7 @@ public class GameStatus : MonoBehaviour
 
     private bool IsGameOver()
     {
-        return nexus.GetCurrentLife() <= 0;
+        return nexus?.GetCurrentLife() <= 0;
     }
 
     public bool IsGameStarted()

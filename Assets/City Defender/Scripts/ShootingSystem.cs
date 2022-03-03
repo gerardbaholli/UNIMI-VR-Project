@@ -79,6 +79,7 @@ public class ShootingSystem : MonoBehaviour
         Effect drop = hit.collider.GetComponent<Effect>();
         drop.GetComponent<SlowerEffect>()?.TriggerEffect();
         drop.GetComponent<ExplosiveEffect>()?.TriggerEffect();
+        drop.GetComponent<HealEffect>()?.TriggerEffect();
         Instantiate(drop.GetDestroyEffect(), drop.transform.position, Quaternion.identity);
         Destroy(drop.gameObject);
     }
