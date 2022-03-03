@@ -76,7 +76,7 @@ public class GameStatus : MonoBehaviour
         rewardSystem.SetScore(score);
         rewardSystem.SetKills(killCounter);
         StartCoroutine(WaitForGameOverSFX());
-        sceneLoader.LoadStartingScene(5f);
+        sceneLoader.GameOver(5f);
     }
 
     private IEnumerator WaitForGameOverSFX()

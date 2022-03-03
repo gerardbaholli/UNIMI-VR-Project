@@ -4,14 +4,16 @@ using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] float delayOnSceneLoad = 0.3f;
+    [SerializeField] float delayOnSceneLoad = 0.5f;
     [SerializeField] AudioClip clickSound;
 
     private GameStatus gameStatus;
+    private Music music;
 
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
+        music = FindObjectOfType<Music>();
     }
 
     public void LoadStartingScene(float delayOnSceneLoad)
@@ -19,7 +21,7 @@ public class SceneLoader : MonoBehaviour
         if (gameStatus != null)
             Destroy(gameStatus);
 
-        StartCoroutine(WaitForSceneLoad(1, delayOnSceneLoad));
+        StartCoroutine(WaitForSceneLoad(1));
     }
 
     public void ReloadScene(float delayOnSceneLoad)
@@ -27,19 +29,18 @@ public class SceneLoader : MonoBehaviour
         if (gameStatus != null)
             Destroy(gameStatus);
 
-        StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex, delayOnSceneLoad));
+        StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadGameScene(float delayOnSceneLoad)
     {
-        Music music = FindObjectOfType<Music>();
         if (music != null)
             Destroy(music);
 
-        StartCoroutine(WaitForSceneLoad(2, delayOnSceneLoad));
+        StartCoroutine(WaitForSceneLoad(2));
     }
 
-    private IEnumerator WaitForSceneLoad(int sceneIndex, float delayOnSceneLoad)
+    private IEnumerator WaitForSceneLoad(int sceneIndex)
     {
         AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
         yield return new WaitForSeconds(delayOnSceneLoad);
@@ -56,6 +57,17 @@ public class SceneLoader : MonoBehaviour
         AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
         yield return new WaitForSeconds(delayOnSceneLoad);
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void GameOver(float delay)
+    {
+        StartCoroutine(WaitGameOver(delay));
+    }
+
+    private IEnumerator WaitGameOver(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LoadStartingScene(0f);
     }
 
 }

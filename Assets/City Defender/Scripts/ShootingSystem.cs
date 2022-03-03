@@ -44,25 +44,6 @@ public class ShootingSystem : MonoBehaviour
         UpdateAmmoText();
     }
 
-    private void FixedUpdate()
-    {
-        UpdateShootCooldown();
-    }
-
-
-    private void UpdateShootCooldown()
-    {
-        if (nextFire - Time.time < 0)
-        {
-            cooldown.text = "READY";
-        }
-        else
-        {
-            cooldown.text = (nextFire - Time.time).ToString("F2");
-        }
-    }
-
-
     public void ShootRaycast()
     {
         if (Time.time > nextFire)
