@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/City Defender/Scenes/Logo.unity
+    guid: a1f00dbdbc66a4b1b8c5b132b1707c76
+  - enabled: 1
     path: Assets/City Defender/Scenes/Start.unity
     guid: 1a7046005ef804be5a79821b0658e704
   - enabled: 1

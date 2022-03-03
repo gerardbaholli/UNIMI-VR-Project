@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour
         if (gameStatus != null)
             Destroy(gameStatus);
 
-        StartCoroutine(WaitForSceneLoad(0, delayOnSceneLoad));
+        StartCoroutine(WaitForSceneLoad(1, delayOnSceneLoad));
     }
 
     public void ReloadScene(float delayOnSceneLoad)
@@ -36,7 +36,7 @@ public class SceneLoader : MonoBehaviour
         if (music != null)
             Destroy(music);
 
-        StartCoroutine(WaitForSceneLoad(1, delayOnSceneLoad));
+        StartCoroutine(WaitForSceneLoad(2, delayOnSceneLoad));
     }
 
     private IEnumerator WaitForSceneLoad(int sceneIndex, float delayOnSceneLoad)
