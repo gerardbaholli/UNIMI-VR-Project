@@ -8,7 +8,7 @@ public class Nexus : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] float originalLife;
-    public float currentLife;
+    private float currentLife;
 
     [Header("Destroy")]
     [SerializeField] GameObject destroyEffect;
@@ -61,6 +61,16 @@ public class Nexus : MonoBehaviour
     public float GetCurrentLife()
     {
         return currentLife;
+    }
+
+    public float GetOriginalLife()
+    {
+        return originalLife;
+    }
+
+    public void SetLife(float value)
+    {
+        currentLife = value;
     }
 
 }
