@@ -16,6 +16,9 @@ public class GameStatus : MonoBehaviour
     [SerializeField] float dmgAmount;
     [SerializeField] float shootSpeed;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip gameOverSFX;
+
     // CACHE
     private UIManager uiManager;
     private SceneLoader sceneLoader;
@@ -72,7 +75,14 @@ public class GameStatus : MonoBehaviour
         gameOverText.text = "GAME OVER\n" + "YOUR SCORE\n" + score.ToString();
         rewardSystem.SetScore(score);
         rewardSystem.SetKills(killCounter);
+        StartCoroutine(WaitForGameOverSFX());
         sceneLoader.LoadStartingScene(5f);
+    }
+
+    private IEnumerator WaitForGameOverSFX()
+    {
+        yield return new WaitForSeconds(1f);
+        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
     }
 
     private bool IsGameOver()
