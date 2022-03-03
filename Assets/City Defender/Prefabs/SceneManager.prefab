@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayOnSceneLoad: 0.3
-  clickSound: {fileID: 8300000, guid: e1ba4c7162934ef4fa94fc271167939c, type: 3}
+  clickSound: {fileID: 8300000, guid: decda9481193ae148b8b845355a73c68, type: 3}
