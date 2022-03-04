@@ -94,4 +94,9 @@ public class Enemy : MonoBehaviour
         speed = value;
     }
 
+    public float GetOriginalHealth()
+    {
+        return originalHealth;
+    }
+
 }
