@@ -16,7 +16,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] float AOEDamage;
     [SerializeField] float AOERadius;
 
-
     [Header("Graphics")]
     [SerializeField] GameObject weaponMesh;
     [SerializeField] GameObject bulletMesh;
