@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
+  shieldDuration: 10
+  sphereRadius: 2
 --- !u!1 &4894892998190582220
 GameObject:
   m_ObjectHideFlags: 0

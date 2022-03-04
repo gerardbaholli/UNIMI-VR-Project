@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class SphereColliderShield : MonoBehaviour
 {
-    [SerializeField] float sphereRadius = 2f;
-    private Collider[] hitColliders;
+    [SerializeField] float shieldDuration = 1f;
+
+    private CameraShield cameraShield;
+    private bool isEffectActive = false;
+
+    private void Start()
+    {
+        cameraShield = FindObjectOfType<CameraShield>();
+        cameraShield.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
 
     private void FixedUpdate()
     {
-        hitColliders = Physics.OverlapSphere(transform.position, sphereRadius);
-        foreach (Collider hitCol in hitColliders)
+        if (Input.GetKeyDown("space"))
         {
-            if (hitCol.tag == "Enemy")
-                Destroy(hitCol.gameObject);
+            StartCoroutine(StartShieldFury());
         }
     }
 
-    void OnDrawGizmosSelected()
+    private IEnumerator StartShieldFury()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, sphereRadius);
+        isEffectActive = true;
+        cameraShield.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(shieldDuration);
+        cameraShield.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        isEffectActive = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isEffectActive)
+            if (other.gameObject.tag == "Enemy")
+                Destroy(other.gameObject);
     }
 
 }

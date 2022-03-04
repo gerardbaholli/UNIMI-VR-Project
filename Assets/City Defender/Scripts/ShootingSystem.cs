@@ -77,12 +77,12 @@ public class ShootingSystem : MonoBehaviour
     private void CheckPowerHit(RaycastHit hit)
     {
         Effect drop = hit.collider.GetComponent<Effect>();
+        Instantiate(drop.GetDestroyEffect(), drop.transform.position, Quaternion.identity);
+        Destroy(drop.gameObject);
         drop.GetComponent<SlowerEffect>()?.TriggerEffect();
         drop.GetComponent<ExplosiveEffect>()?.TriggerEffect();
         drop.GetComponent<HealEffect>()?.TriggerEffect();
         drop.GetComponent<ShieldEffect>()?.TriggerEffect();
-        Instantiate(drop.GetDestroyEffect(), drop.transform.position, Quaternion.identity);
-        Destroy(drop.gameObject);
     }
 
     private void CheckWeaponHit(RaycastHit hit)

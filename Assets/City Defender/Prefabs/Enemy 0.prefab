@@ -312,6 +312,9 @@ MonoBehaviour:
   - reward: {fileID: 3085558512943759910, guid: 11dff12b694dfc34995762af8f99cd3b,
       type: 3}
     dropRate: 0.03
+  - reward: {fileID: 3085558512943759910, guid: 348ba8a92efdb4ea3bd6d9106f491fb8,
+      type: 3}
+    dropRate: 0.03
   secondsAfterDestroyDrop: 5
 --- !u!114 &-7769271775319812194
 MonoBehaviour:
