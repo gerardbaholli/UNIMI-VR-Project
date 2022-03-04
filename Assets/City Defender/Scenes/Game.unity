@@ -1819,14 +1819,13 @@ GameObject:
   m_Component:
   - component: {fileID: 613440015}
   - component: {fileID: 613440016}
-  - component: {fileID: 613440017}
   m_Layer: 0
   m_Name: Camera Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &613440015
 Transform:
   m_ObjectHideFlags: 0
@@ -1835,8 +1834,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613440014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.81}
-  m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.11}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1354141930}
@@ -1894,18 +1893,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &613440017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613440014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d1a03d2b18e41fe9c70516ee89ab02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &656880745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,6 +2977,8 @@ GameObject:
   - component: {fileID: 1354141929}
   - component: {fileID: 1354141928}
   - component: {fileID: 1354141927}
+  - component: {fileID: 1354141931}
+  - component: {fileID: 1354141932}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -3105,6 +3094,32 @@ Transform:
   m_Father: {fileID: 1659859599}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1354141931
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354141925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1354141932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354141925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d1a03d2b18e41fe9c70516ee89ab02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldSprite: {fileID: 613440016}
 --- !u!1 &1375043325
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,8 +19,10 @@ public class Enemy : MonoBehaviour
     [Header("Graphic")]
     [SerializeField] Image healthbar;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip destroySFX;
+
     private GameStatus gameStatus;
-    private RewardSystem rewardSystem;
     private Nexus target;
     private Drop dropManager;
     float currentHealth;
@@ -28,7 +30,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
-        rewardSystem = FindObjectOfType<RewardSystem>();
         target = FindObjectOfType<Nexus>();
         currentHealth = originalHealth;
 
@@ -68,6 +69,7 @@ public class Enemy : MonoBehaviour
             gameStatus.AddPointsToScore(pointsForKilling);
             gameStatus.CountKill();
             RandomDrop();
+            AudioSource.PlayClipAtPoint(destroySFX, transform.position, 1f);
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

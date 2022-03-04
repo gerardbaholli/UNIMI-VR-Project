@@ -534,7 +534,7 @@ MonoBehaviour:
     dropRate: 0.04
   - reward: {fileID: 3085558512943759910, guid: 348ba8a92efdb4ea3bd6d9106f491fb8,
       type: 3}
-    dropRate: 0.3
+    dropRate: 0.2
   secondsAfterDestroyDrop: 5
 --- !u!114 &2809001674432232968
 MonoBehaviour:
@@ -555,6 +555,7 @@ MonoBehaviour:
   impactOnNexusEffect: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   healthbar: {fileID: 3437466904668216295}
+  destroySFX: {fileID: 8300000, guid: 50d4b6c31cf935c408b1bc76fb2a34ae, type: 3}
 --- !u!114 &-368691236413012589
 MonoBehaviour:
   m_ObjectHideFlags: 0

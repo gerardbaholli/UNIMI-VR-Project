@@ -479,6 +479,7 @@ MonoBehaviour:
   impactOnNexusEffect: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   healthbar: {fileID: 8847411134379664698}
+  destroySFX: {fileID: 8300000, guid: 50d4b6c31cf935c408b1bc76fb2a34ae, type: 3}
 --- !u!114 &3636980317328359571
 MonoBehaviour:
   m_ObjectHideFlags: 0

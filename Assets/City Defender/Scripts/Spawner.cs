@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
         Quaternion.LookRotation(nexus.transform.position - spawnPosition));
 
         LogarithmicUpdateCooldown(logBase, logPlus);
-        Debug.Log("Cooldown: " + spawnCooldown);
+        //Debug.Log("Cooldown: " + spawnCooldown);
 
         yield return new WaitForSeconds(spawnCooldown);
         StartCoroutine(SpawnEnemies());

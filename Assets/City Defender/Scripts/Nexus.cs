@@ -28,7 +28,6 @@ public class Nexus : MonoBehaviour
     {
         if (healthbarImage == null)
         {
-            Debug.Log("healthbarImage is NULL: " + healthbarImage);
             healthbarImage = FindObjectOfType<Healthbar>().GetComponent<Image>();
         }
 
