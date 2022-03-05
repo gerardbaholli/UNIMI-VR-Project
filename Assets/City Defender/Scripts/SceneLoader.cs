@@ -27,7 +27,7 @@ public class SceneLoader : MonoBehaviour
         if (gameStatus != null)
             Destroy(gameStatus.gameObject);
 
-        StartCoroutine(WaitForMenuSceneLoad(SceneManager.GetActiveScene().buildIndex));
+        StartCoroutine(WaitForGameSceneLoad(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadGameScene(float delayOnSceneLoad)
