@@ -8,12 +8,10 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] AudioClip clickSound;
 
     private GameStatus gameStatus;
-    private Music music;
 
     private void Start()
     {
         gameStatus = FindObjectOfType<GameStatus>();
-        music = FindObjectOfType<Music>();
     }
 
     public void LoadStartingScene(float delayOnSceneLoad)
@@ -21,7 +19,7 @@ public class SceneLoader : MonoBehaviour
         if (gameStatus != null)
             Destroy(gameStatus.gameObject);
 
-        StartCoroutine(WaitForSceneLoad(1));
+        StartCoroutine(WaitForMenuSceneLoad(1));
     }
 
     public void ReloadScene(float delayOnSceneLoad)
@@ -29,21 +27,27 @@ public class SceneLoader : MonoBehaviour
         if (gameStatus != null)
             Destroy(gameStatus.gameObject);
 
-        StartCoroutine(WaitForSceneLoad(SceneManager.GetActiveScene().buildIndex));
+        StartCoroutine(WaitForMenuSceneLoad(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadGameScene(float delayOnSceneLoad)
     {
-        if (music != null)
-            Destroy(music.gameObject);
-
-        StartCoroutine(WaitForSceneLoad(2));
+        StartCoroutine(WaitForGameSceneLoad(2));
     }
 
-    private IEnumerator WaitForSceneLoad(int sceneIndex)
+    private IEnumerator WaitForGameSceneLoad(int sceneIndex)
     {
         AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
         yield return new WaitForSeconds(delayOnSceneLoad);
+        FindObjectOfType<MusicManager>().StopAll();
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    private IEnumerator WaitForMenuSceneLoad(int sceneIndex)
+    {
+        AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
+        yield return new WaitForSeconds(delayOnSceneLoad);
+        FindObjectOfType<MusicManager>().PlayMusic("MenuMusic");
         SceneManager.LoadScene(sceneIndex);
     }
 
