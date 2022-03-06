@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 7641728068510909286}
   - component: {fileID: -5755201548359046186}
   - component: {fileID: 2809001674432232968}
+  - component: {fileID: -8316064711919760879}
   - component: {fileID: -368691236413012589}
   m_Layer: 0
   m_Name: Enemy 2
@@ -556,6 +557,18 @@ MonoBehaviour:
   destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   healthbar: {fileID: 3437466904668216295}
   destroySFX: {fileID: 8300000, guid: 50d4b6c31cf935c408b1bc76fb2a34ae, type: 3}
+--- !u!114 &-8316064711919760879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631737928966635692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83dfaa4d35712b943b163b59a15ee1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-368691236413012589
 MonoBehaviour:
   m_ObjectHideFlags: 0
