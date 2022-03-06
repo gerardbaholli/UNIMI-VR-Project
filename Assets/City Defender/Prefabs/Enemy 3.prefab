@@ -522,19 +522,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loots:
-  - reward: {fileID: 5569457345321563296, guid: 04dc6ca2e138e4cea8fb8602bb64c0da,
+  - reward: {fileID: 3085558512943759910, guid: 60d7b1af21dfe1e46b9ca6d0dc6abbc5,
       type: 3}
-    dropRate: 0.04
-  - reward: {fileID: 1251895814159310046, guid: fb7769c963e95054581a8a7fbe425216,
-      type: 3}
-    dropRate: 0.05
-  - reward: {fileID: 3085558512943759910, guid: 3edd03798466c409081b2adb033b7ba8,
-      type: 3}
-    dropRate: 0.04
-  - reward: {fileID: 3085558512943759910, guid: 348ba8a92efdb4ea3bd6d9106f491fb8,
-      type: 3}
-    dropRate: 0.2
-  secondsAfterDestroyDrop: 5
+    dropRate: 1
+  secondsAfterDestroyDrop: 10
 --- !u!114 &2809001674432232968
 MonoBehaviour:
   m_ObjectHideFlags: 0
