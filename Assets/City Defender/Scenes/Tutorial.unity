@@ -746,7 +746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1050}
+  m_AnchoredPosition: {x: 0, y: -729}
   m_SizeDelta: {x: 919.2, y: 73.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561017984
@@ -1190,7 +1190,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1583814423}
   m_Father: {fileID: 1105668048}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1472,7 +1473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.049988, y: -8.700111}
+  m_AnchoredPosition: {x: 0.049988, y: 312.29987}
   m_SizeDelta: {x: 919.2, y: 73.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050547312
@@ -1604,15 +1605,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 948814346}
-  - {fileID: 1583814423}
   - {fileID: 1609996287}
-  - {fileID: 1534152457}
   m_Father: {fileID: 1890426942}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.025001999, y: 1223.6002}
+  m_AnchoredPosition: {x: 0.025001999, y: 1544.6002}
   m_SizeDelta: {x: 919.15, y: 507.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105668049
@@ -2570,17 +2569,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534152456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1105668048}
-  m_RootOrder: 3
+  m_Father: {fileID: 1609996287}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 334.58002, y: -1024.5}
+  m_AnchoredPosition: {x: 470.97003, y: 0}
   m_SizeDelta: {x: 275, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534152458
@@ -2646,17 +2645,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583814422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1105668048}
-  m_RootOrder: 1
+  m_Father: {fileID: 948814346}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 334.58002, y: -708}
+  m_AnchoredPosition: {x: 470.97003, y: 0.000061035156}
   m_SizeDelta: {x: 275, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583814424
@@ -2863,9 +2862,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1534152457}
   m_Father: {fileID: 1105668048}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3849,11 +3849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'In AR City Defender you have to resist the waves of enemy spaceships.
-
-    Use
-    the weapons and the various powers to resist as much as possible by setting a
-    new record.'
+  m_text: In AR City Defender you have to resist the waves of enemy spaceships.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a2f20c23a7974a6091d7825693d960d, type: 2}
   m_sharedMaterial: {fileID: -8158580887705120517, guid: 9a2f20c23a7974a6091d7825693d960d,
