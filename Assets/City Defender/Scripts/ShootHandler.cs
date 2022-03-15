@@ -19,7 +19,6 @@ public class ShootHandler : MonoBehaviour, IUpdateSelectedHandler, IPointerDownH
     {
         if (isPressed)
         {
-            Debug.Log("SHOOT");
             shootingSystem.ShootRaycast();
         }
     }

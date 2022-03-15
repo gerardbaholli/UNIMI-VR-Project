@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5316233214109096797}
-  - component: {fileID: -3544932984422366319}
-  - component: {fileID: 5316233214109096798}
   - component: {fileID: 1977447827}
+  - component: {fileID: 5316233214109096798}
+  - component: {fileID: -3544932984422366319}
   m_Layer: 0
   m_Name: Nexus
   m_TagString: Nexus
@@ -57,24 +57,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3544932984422366319
-MonoBehaviour:
+--- !u!135 &1977447827
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5316233214109096786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83be6a7f815d4bddbbdaf99f5f7c47e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalLife: 100
-  currentLife: 0
-  destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
-  fireEffect: {fileID: 100004, guid: cdd71635203c8ed47a18dcefce87463e, type: 3}
-  destroySound1: {fileID: 8300000, guid: 71fa32df884d3cb43a9153497b1e7fef, type: 3}
-  destroySound2: {fileID: 8300000, guid: 2bb692ed3a23ec84f85d847a6579946e, type: 3}
+  serializedVersion: 2
+  m_Radius: 5.3578644
+  m_Center: {x: 0, y: 1.6658087, z: 0.023481846}
 --- !u!54 &5316233214109096798
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -91,19 +86,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1977447827
-SphereCollider:
+--- !u!114 &-3544932984422366319
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5316233214109096786}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.3578644
-  m_Center: {x: 0, y: 1.6658087, z: 0.023481846}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83be6a7f815d4bddbbdaf99f5f7c47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalLife: 100
+  destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
+  fireEffect: {fileID: 100004, guid: cdd71635203c8ed47a18dcefce87463e, type: 3}
+  destroySound1: {fileID: 8300000, guid: 71fa32df884d3cb43a9153497b1e7fef, type: 3}
+  destroySound2: {fileID: 8300000, guid: 2bb692ed3a23ec84f85d847a6579946e, type: 3}
 --- !u!1 &7424104579550266017
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +152,8 @@ MonoBehaviour:
   - {fileID: -7636976184935689385, guid: 67f94824ce2608b43adb64e81df9b63f, type: 3}
   - {fileID: 2809001674432232968, guid: 8c6c1f550a659b74a9bccdaf37090a45, type: 3}
   minSpawnCooldown: 0.7
+  boss: {fileID: 2809001674432232968, guid: 5cebd044633d441828a0f8f38c32e535, type: 3}
+  bossSpawnCooldown: 60
   logBase: 0.5
   logPlus: 9
 --- !u!1001 &588971794485696799

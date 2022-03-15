@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: -3837519454121211811}
   - component: {fileID: -8719847849767634809}
   - component: {fileID: -7769271775319812194}
+  - component: {fileID: -1570080981783320895}
   - component: {fileID: -3635186395645649137}
   m_Layer: 0
   m_Name: Enemy 0
@@ -335,7 +336,8 @@ MonoBehaviour:
   impactOnNexusEffect: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   destroyEffect: {fileID: 100002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   healthbar: {fileID: 4420287016479255772}
---- !u!114 &-3635186395645649137
+  destroySFX: {fileID: 8300000, guid: 50d4b6c31cf935c408b1bc76fb2a34ae, type: 3}
+--- !u!114 &-1570080981783320895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,6 +345,18 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4631737928966635692}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83dfaa4d35712b943b163b59a15ee1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3635186395645649137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631737928966635692}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb7051e2530fd5b47bb26d85896e7a96, type: 3}
   m_Name: 

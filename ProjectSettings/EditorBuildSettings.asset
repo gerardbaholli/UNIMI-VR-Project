@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/City Defender/Scenes/Credits.unity
     guid: 446340b2512e1544f82d414333e96f39
+  - enabled: 1
+    path: Assets/City Defender/Scenes/Tutorial.unity
+    guid: 6e73bf4bff3b741979856d027b903250
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
